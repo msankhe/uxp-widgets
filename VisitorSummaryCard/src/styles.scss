@@ -11,64 +11,43 @@ $calendar: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAA
         contrast(81%);
 }
 
-.visitor-summary-cards {
+.visitor-summary-card-container {
+    position: relative;
     width: 100%;
     height: 100%;
-    margin: 0;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.12);
-    position: relative;
 
-    * {
-        box-sizing: border-box;
-    }
-
-    &::before,
-    &::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: white;
-        height: 100%;
-        z-index: -1;
-        box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.12);
-        border-radius: 10px;
-    }
-
-    &::before {
-        top: 20px;
-        width: 90%;
-    }
-
-    &::after  {
-        top: 10px;
-        width: 95%;
-    }
-
-    .count {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background-color: #424242;
-        color: white;
-        transform: translate(90%, -90%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 10px;
-    }
-
-    .visitor-summary-card-content {
+    .visitor-summary-card {
         width: 100%;
         height: 100%;
-        position: relative;
+        margin: 0;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.12);
+        position: absolute;
+        top: 0;
+        left: 0;
         z-index: 1;
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 22px;
+            height: 22px;
+            transform: translate(110%, -110%);
+            border-radius: 50%;
+            background-color: #424242;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
 
         .header {
             width: 100%;
@@ -199,4 +178,70 @@ $calendar: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAA
             }
         }
     }
+
+    .visitor-summary-card-placeholder {
+        position: absolute;
+        width: 95%;
+        height: 100%;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.12);
+        border-radius: 10px;
+        z-index: 0;
+
+        &::after, &::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.12);
+            border-radius: 10px;
+        }
+
+        &::after {
+            width: 95%;
+            top: 10px;
+            z-index: 0;
+        }
+
+        &::before {
+            width: 100%;
+            top: 0;
+            z-index: 1;
+        }
+    }
+}
+
+/* appear - on page load */
+.fade-appear {
+    opacity: 0;
+}
+.fade-appear.fade-appear-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+}
+
+/* enter */
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out 150ms;
+}
+
+/* exit */
+.fade-exit {
+    opacity: 1;
+}
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+}
+.fade-exit-done {
+    opacity: 0;
 }
