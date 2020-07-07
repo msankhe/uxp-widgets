@@ -1,0 +1,208 @@
+$acIcon: "data:image/png;base64,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";
+$pendingColor: #FFA133;
+$rejectedColor: #FA5B5BC4;
+$approvedColor: #52c4c9;
+
+.ac-request-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 16px 4px rgba(0,0,0,0.12);
+
+    .header {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        border-bottom: 1px solid #ccc;
+        
+        .title {
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .icon {
+                width: 30px;
+                height: 30px;
+                background-color: transparent;
+                background-image: url($acIcon);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 90%;
+                margin-right: 10px;
+            }
+
+            .text {
+                text-transform: uppercase;
+            }
+        }
+
+    }
+
+    .body {
+        position: relative;
+        width: 100%;
+        height: 320px;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        .ac-request-thumbnail {
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: stretch;
+            background-color: white;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .status-indicator {
+                width: 30px;
+                height: auto;
+                position: relative;
+                
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    background-color: gray;
+                }
+            }
+
+            .request-details {
+                width: auto;
+                max-width: 70%;
+                margin: 0 10px;
+
+                .request {
+                    font-weight: 900;
+                    padding: 3px;
+                }
+
+                .user {
+                    padding: 3px;
+
+                }
+
+                .section {
+                    padding: 3px;
+
+                }
+            }
+
+            .status {
+                width: auto;
+                margin: auto;
+                margin-right: 10px;
+
+                .label {
+                    width: auto;
+                    height: auto;
+                    padding: 8px 2px;
+                    background-color: gray;
+                    border-radius: 20px;
+                    font-size: 10px;
+                    color: white;
+                    text-align: center;
+                    margin-bottom: 4px;
+                }
+
+                .date {
+                    color: $rejectedColor;
+                }
+            }
+
+            &.pending {
+                .status-indicator {
+                    &::before {
+                        background-color: $pendingColor;
+                    }
+                }
+
+                .request-details { 
+                    .request {
+                        color: $pendingColor;
+                    }
+                }
+
+                .status {
+                    .label {
+                        background-color: $pendingColor;
+                    }
+                }
+            }
+
+            &.rejected {
+                .status-indicator {
+                    &::before {
+                        background-color: $rejectedColor;
+                    }
+                }
+
+                .request-details { 
+        
+                }
+
+                .status {
+                    .label {
+                        background-color: $rejectedColor;
+                    }
+                }
+            }
+
+            &.approved {
+                .status-indicator {
+                    &::before {
+                        background-color: $approvedColor;
+                    }
+                }
+
+                .request-details { 
+                    
+                }
+
+                .status {
+                    .label {
+                        background-color: $approvedColor;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.filter-item {
+    width: 100%;
+    height: auto;
+    padding: 0 10px;
+    margin-bottom: 10px;
+
+    label {
+        margin: 0;
+    }
+
+    select {
+        width: 100%;
+        padding: 8px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+    }
+}
