@@ -60,7 +60,7 @@ class AfterHoursACRequestWidget extends React.Component<{}, {}> {
                             <div className="section">Design Team</div>
                         </div>
                         <div className="status">
-                            <div className="label">Pending</div>
+                            <div className="label">approved</div>
                             <div className="date">23/07/2020</div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ class AfterHoursACRequestWidget extends React.Component<{}, {}> {
                             <div className="section">Design Team</div>
                         </div>
                         <div className="status">
-                            <div className="label">Pending</div>
+                            <div className="label">rejected</div>
                             <div className="date">23/07/2020</div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ class AfterHoursACRequestWidget extends React.Component<{}, {}> {
                             <div className="section">Design Team</div>
                         </div>
                         <div className="status">
-                            <div className="label">Pending</div>
+                            <div className="label">rejected</div>
                             <div className="date">23/07/2020</div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ class AfterHoursACRequestWidget extends React.Component<{}, {}> {
                             <div className="section">Design Team</div>
                         </div>
                         <div className="status">
-                            <div className="label">Pending</div>
+                            <div className="label">approved</div>
                             <div className="date">23/07/2020</div>
                         </div>
                     </div>
@@ -131,6 +131,6 @@ registerWidget({
         "container": {
             "background": "transparent"
         },
-        "layout": {w: 5, h: 12, minW: 5, minH:12, maxH: 12}
+        "layout": {w: 5, h: 12, minW: 5, minH:12}
     }
 });
