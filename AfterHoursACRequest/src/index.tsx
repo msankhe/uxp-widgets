@@ -1,9 +1,15 @@
 import * as React from "react";
-import { registerWidget } from './uxp';
+import { registerWidget, IContextProvider } from './uxp';
 import './styles.scss';
 import FilterPanel from "./filter-panel/FilterPanel";
 
-class AfterHoursACRequestWidget extends React.Component<{}, {}> {
+interface IProps {
+    uxpContext?: IContextProvider
+}
+
+interface IState {}
+
+class AfterHoursACRequestWidget extends React.Component<IProps, IState> {
     render() {
         return (<>
             <div className="ac-request-container">

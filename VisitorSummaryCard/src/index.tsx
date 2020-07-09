@@ -1,5 +1,5 @@
 import * as React from "react";
-import { registerWidget } from './uxp';
+import { registerWidget, IContextProvider } from './uxp';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // styles
@@ -11,7 +11,11 @@ interface IVisitor {
     index?: number
 }
 
-const VisitorSummaryCardWidget = () => {
+interface IProps {
+    uxpContext?: IContextProvider
+}
+
+const VisitorSummaryCardWidget = (props: IProps) => {
 
     // data set
     const dataSet: IVisitor[] = [

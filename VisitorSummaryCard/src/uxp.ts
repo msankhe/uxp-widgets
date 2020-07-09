@@ -40,6 +40,34 @@ declare global {
     }
 }
 
+
+interface ISidebarLink {
+    link: string,
+    target?: string,
+    icon?: string,
+    label: string
+}
+interface IWidgetManager {
+    loadFromMarketPlace: boolean;
+    url: string;
+}
+
+interface IPartialContextProvider {
+    root: string,
+    sidebarContent: ISidebarLink[],
+    scriptFiles: string[],
+    widgetManager: IWidgetManager;
+    lucyUrl: string;
+    apiKey: string;
+    userKey: string;
+}
+
+export interface IContextProvider extends IPartialContextProvider {   
+    executeAction:(model:string, action:string, parameters:any) => Promise<any>;
+    fireEvent:(eventID: string) => Promise<void>;
+    hasAppRole:(roles:string|string[]) => Promise<boolean>;
+}
+
 export function registerWidget(widget:IWidgetObject) {
     if (!window.registerWidget) {
         console.error('This code is not being run within the context of UXP');
