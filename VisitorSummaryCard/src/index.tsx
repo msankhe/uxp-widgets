@@ -67,6 +67,8 @@ const VisitorSummaryCardWidget = (props: IProps) => {
     // return 
     return (<TransitionGroup className="visitor-summary-card-container">
 
+        <div className="count">{dataSet.length}</div>
+
         <CSSTransition
             key={visitor.index}
             timeout={300}
@@ -74,7 +76,6 @@ const VisitorSummaryCardWidget = (props: IProps) => {
         >
             <div className="visitor-summary-card">
 
-                <div className="count">{dataSet.length}</div>
 
                 <div className="header">
                     <div className="title">
@@ -121,6 +122,6 @@ registerWidget({
     "widget": VisitorSummaryCardWidget,
     "configs": {
         "container": { "background": "transparent" },
-        "layout": { w: 5, h: 9, minW: 5, minH: 9 }
+        "layout": { w: 9, h: 7, minW: 9, minH: 7 }
     }
 });
