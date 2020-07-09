@@ -99,6 +99,6 @@ registerWidget({
         "container": {
             "background": "transparent"
         },
-        "layout": { w: 21, h: 7, minW: 9, minH: 7 }
+        "layout": { w: 21, h: 7, minW: 15, minH: 7 }
     }
 });

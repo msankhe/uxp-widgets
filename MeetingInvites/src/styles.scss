@@ -18,17 +18,17 @@ $calendarIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeB
         position: absolute;
         top: 0;
         left: 0;
-        width: 220px;
+        width: 200px;
         height: 100%;
-        min-height: 220px;
+        min-height: 200px;
         background-color: #fafafa;
         display: flex;
         align-items: center;
         justify-content: center;
 
         .icon {
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             background-image: url($calendarIcon);
             background-position: center;
             background-repeat: no-repeat;
@@ -37,7 +37,7 @@ $calendarIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeB
         }
 
         .text {
-            font-size: 12px;
+            font-size: 10px;
             text-transform: uppercase;
             font-weight: 900;
         }
@@ -45,7 +45,7 @@ $calendarIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeB
 
     .body {
         position: relative;
-        margin-left: 220px;
+        margin-left: 200px;
         width: auto;
         height: auto;
         background-color: transparent;
@@ -56,15 +56,15 @@ $calendarIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeB
         .meeting-invite-tile {
             position: relative;
             width: auto;
-            min-width: 180px;
+            min-width: 130px;
             height: auto;
             background-color: white;
-            padding: 15px;
+            padding: 5px;
             margin: 0 2px;
 
             .image {
-                width: 100px;
-                height: 100px;
+                width: 70px;
+                height: 70px;
                 border-radius: 50%;
                 display: block;
                 margin: 20% auto 10px auto;
@@ -73,8 +73,9 @@ $calendarIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeB
             .name {
                 width: 100%;
                 height: auto;
-                padding: 10px;
+                padding: 10px 5px;
                 text-align: center;
+                font-size: 11px;
             }
 
             .action-buttons {
@@ -89,7 +90,8 @@ $calendarIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeB
                 .accept {
                     background-color: #d4fdc1;
                     text-transform: uppercase;
-                    font-size: 10px;
+                    font-size: 8px;
+                    padding: 6px 10px;
 
                     &:hover {
                         background-color: #d4fdc1;
@@ -98,8 +100,8 @@ $calendarIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeB
                 }
 
                 .close {
-                    width: 20px;
-                    height: 20px;
+                    width: 15px;
+                    height: 15px;
                     border-radius: 50%;
                     margin-left: 10px;
                     padding: 0;
