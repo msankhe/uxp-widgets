@@ -33,7 +33,9 @@ interface IWidgetObject {
     guid:  string,
     name: string,
     widget: any,
-    configs?: IWidgetConfig
+    configs?: IWidgetConfig,
+    vendor?: string,
+    tags?: string[]
 }
 declare global {
     interface Window {
