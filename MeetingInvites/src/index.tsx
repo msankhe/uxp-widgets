@@ -93,6 +93,7 @@ const MeetingInvitesWidget = (props: IProps) => {
 }
 
 registerWidget({
+    "guid":"7bc878b1-800d-4b29-da37-a0f7aa5bdd88",
     "name": "Meeting Invites",
     "widget": MeetingInvitesWidget,
     "configs": {

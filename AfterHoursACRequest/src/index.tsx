@@ -131,6 +131,7 @@ class AfterHoursACRequestWidget extends React.Component<IProps, IState> {
 }
 
 registerWidget({
+    "guid": "df558fd3-3963-4f5a-cf06-4defe2e3e7f9",
     "name": "After Hours AC Request",
     "widget": AfterHoursACRequestWidget,
     "configs": {

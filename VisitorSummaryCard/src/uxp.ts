@@ -30,6 +30,7 @@ interface IWidgetConfig {
 }
 
 interface IWidgetObject {
+    guid:  string,
     name: string,
     widget: any,
     configs?: IWidgetConfig
