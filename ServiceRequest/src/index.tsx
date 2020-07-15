@@ -332,6 +332,6 @@ registerWidget({
         "container": {
             "background": "transparent"
         },
-        "layout": { w: 9, h: 12, minW: 9, minH: 9 }
+        "layout": { w: 11, h: 12, minW: 11, minH: 9 }
     }
 });
