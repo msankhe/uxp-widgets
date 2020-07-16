@@ -30,7 +30,7 @@ declare module "uxp/components" {
     export const Tooltip: React.FC<ITooltip>;
 
     // popover
-    interface IPopover { 
+    interface IPopover {
         title: string | HTMLElement,
         content: string | HTMLElement,
         position?: ITooltipPosition
@@ -38,24 +38,27 @@ declare module "uxp/components" {
     export const Popover: React.FC<IPopover>;
 
     // modal
+    type IAnimation = 'm-slide-ftr' | 'm-slide-ftl' | 'm-slide-fbr' | 'm-slide-fbl' | 'm-zoom-fc';
+
     interface IModal {
         show: boolean,
-        title?: any,
         onOpen: any,
         onClose: any,
-        backgroundDismiss?: boolean,
+        title?: any,
         closeButton?: any,
         styles?: any,
         class?: string,
         headerContent?: any
-        showCloseButton?: boolean
+        backgroundDismiss?: boolean,
+        showCloseButton?: boolean,
+        animation?: IAnimation
     }
     export const Modal: React.FC<IModal>;
 
     interface ICallback {
         (): void
     }
-    
+
     interface IFilterPanel {
         onOpen?: ICallback,
         onClose?: ICallback,

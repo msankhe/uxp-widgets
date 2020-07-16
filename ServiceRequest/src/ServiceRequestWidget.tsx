@@ -3,6 +3,7 @@ import { IContextProvider, } from './uxp';
 import { FilterPanel } from "uxp/components";
 
 import './styles.scss';
+import ServiceModal from "./ServiceModal";
 
 type IPriority = 'high' | "low";
 interface IProps {
@@ -127,10 +128,17 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
     const [showScrollUp, setShowScrollUp] = React.useState(false);
     const [showScrollDown, setShowScrollDown] = React.useState(false);
 
+    const [showModal, setShowModal] = React.useState(false)
+
     // toggle scroll buttons
     React.useEffect(() => {
         toggleFooter();
     }, [currentKey])
+
+    React.useEffect(() => {
+        console.log("show modal")
+        console.log(showModal)
+    }, [showModal])
 
     // get invisible list item count & is last item is visible
     const checkVisibility = (): [number, boolean] => {
@@ -224,12 +232,13 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
         })
     }
 
+
     let filterPanelProps: any = {
         onOpen: () => { },
         onClose: () => { }
     }
 
-    if(props.expandedFilterPanel) {
+    if (props.expandedFilterPanel) {
         filterPanelProps.fillContainer = listContainerRef
     }
 
@@ -276,6 +285,7 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
                     data.map((item: IDataItem, key: number) => {
                         return (<div className={`list-thumbnail ${item.status.toLowerCase()}`}
                             ref={(el: any) => (listItemsRef.current[key] = el)}
+                            onClick={() => setShowModal(true)}
                         >
                             <div className="icon-placeholder">
                                 <img src={item.icon} alt="" />
@@ -327,6 +337,8 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
             }
 
         </div>
+        
+        <ServiceModal show={showModal} onClose={() => setShowModal(false)} data={data} />
     </>);
 }
 

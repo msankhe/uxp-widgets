@@ -1,6 +1,8 @@
 $acIcon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNS41NzciIGhlaWdodD0iMTUuNTc3IiB2aWV3Qm94PSIwIDAgMTUuNTc3IDE1LjU3NyI+PGRlZnM+PHN0eWxlPi5he2ZpbGw6IzcwNzA3MDt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik0xNy4wMTksM0g0LjU1OGExLjU1NiwxLjU1NiwwLDAsMC0xLjU1LDEuNTU4TDMsMTguNTc3bDMuMTE1LTMuMTE1aDEwLjlBMS41NjIsMS41NjIsMCwwLDAsMTguNTc3LDEzLjlWNC41NThBMS41NjIsMS41NjIsMCwwLDAsMTcuMDE5LDNabS01LjQ1Miw5LjM0NkgxMC4wMDlWMTAuNzg4aDEuNTU4Wm0wLTMuMTE1SDEwLjAwOVY2LjExNWgxLjU1OFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zIC0zKSIvPjwvc3ZnPg==";
 $arrowIcon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNi4xNCIgaGVpZ2h0PSIxMC40MjMiIHZpZXdCb3g9IjAgMCAxNi4xNCAxMC40MjMiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOiM0MjQyNDI7b3BhY2l0eTowLjcwMjt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik03LjIxNCwyMC44MDguMzUyLDEzLjk0NmExLjIwNiwxLjIwNiwwLDAsMSwwLTEuNzFsMS4xNC0xLjE0YTEuMjA2LDEuMjA2LDAsMCwxLDEuNzEsMGw0Ljg2NCw0Ljg2NEwxMi45MywxMS4xYTEuMjA2LDEuMjA2LDAsMCwxLDEuNzEsMGwxLjE0LDEuMTRhMS4yMDYsMS4yMDYsMCwwLDEsMCwxLjcxTDguOTE5LDIwLjgwOEExLjIsMS4yLDAsMCwxLDcuMjE0LDIwLjgwOFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDA0IC0xMC43NCkiLz48L3N2Zz4=";
 $iconBG: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNSIgaGVpZ2h0PSIzNSIgdmlld0JveD0iMCAwIDM1IDM1Ij48ZGVmcz48c3R5bGU+LmF7ZmlsbDojNzA3MDcwO29wYWNpdHk6MC4xNDt9PC9zdHlsZT48L2RlZnM+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4xMzQpIj48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTcuNSIgY3k9IjE3LjUiIHI9IjE3LjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjEzNCkiLz48L2c+PC9zdmc+";
+$checkIcon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMS4wNTciIGhlaWdodD0iNy45MDUiIHZpZXdCb3g9IjAgMCAxMS4wNTcgNy45MDUiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOm5vbmU7c3Ryb2tlOiM0MjQyNDI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDoycHg7b3BhY2l0eTowLjU0O308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iYSIgZD0iTTcwMS4yNTksMzc1Ljg3MmwyLjcyMiwyLjc3MSw1LjUwNy01LjQ5MSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTY5OS44NDUgLTM3MS43MzcpIi8+PC9zdmc+";
+
 $pendingColor: #ffa133;
 $overdueColor: #ec4b7b;
 $approvedColor: #2cc8b3;
@@ -64,7 +66,6 @@ $assignedColor: #72a5f3;
                         background-color: #707070;
                         color: white;
                     }
-
                 }
             }
         }
@@ -290,5 +291,263 @@ $assignedColor: #72a5f3;
                 }
             }
         }
+    }
+}
+
+.modal-container {
+    .modal-panel {
+        &.sr-modal {
+            .srm-header {
+                width: 100%;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .title {
+                    display: flex;
+                    align-items: center;
+
+                    .icon {
+                        width: 30px;
+                        height: 30px;
+                        background-color: transparent;
+                        background-image: url($acIcon);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: 60%;
+                        margin-right: 10px;
+                    }
+                    .text {
+                        text-transform: capitalize;
+                    }
+                }
+
+                .filters {
+                    width: auto;
+                    height: auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .filter {
+                        width: auto;
+                        padding: 5px 10px;
+                        background-color: white;
+                        margin: 0 4px;
+                        text-transform: capitalize;
+                        border-radius: 50px;
+                        cursor: pointer;
+
+                        &:hover {
+                            &.pending {
+                                background-color: $pendingColor;
+                            }
+                            &.approved {
+                                background-color: $approvedColor;
+                            }
+                            &.assigned {
+                                background-color: $assignedColor;
+                            }
+                            &.overdue {
+                                background-color: $overdueColor;
+                            }
+                            color: white;
+                        }
+
+                        &.active {
+                            &.pending {
+                                background-color: $pendingColor;
+                            }
+                            &.approved {
+                                background-color: $approvedColor;
+                            }
+                            &.assigned {
+                                background-color: $assignedColor;
+                            }
+                            &.overdue {
+                                background-color: $overdueColor;
+                            }
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            .modal-body {
+                .data-list {
+                    width: 100%;
+                    height: 100%;
+
+                    .data-item {
+                        width: 100%;
+                        height: auto;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        padding: 10px 0;
+
+                        .indicator {
+                            all: unset;
+                            width: 30px;
+                            height: 30px;
+                            position: relative;
+                            background-color: transparent;
+                            display: flex;
+                            align-items: center;
+                            justify-self: center;
+
+                            div {
+                                width: 5px;
+                                height: 5px;
+                                border-radius: 50%;
+                                background-color: gray;
+                            }
+                        }
+
+                        .request {
+                            padding: 0 20px;
+                        }
+
+                        .description {
+                            margin: auto;
+                            padding: 0 20px;
+
+                            .section {
+                                width: auto;
+                                display: inline-block;
+                                height: auto;
+                                background-color: #ecebeb;
+                                border-radius: 50px;
+                                padding: 4px 15px;
+                                margin: 2px;
+                            }
+                        }
+
+                        .date {
+                            margin: auto;
+                            padding: 0 15px;
+                            color: $overdueColor;
+                        }
+
+                        .action {
+                            margin: auto;
+                            margin-right: 10px;
+                            width: auto;
+
+                            .approve {
+                                width: 30px;
+                                height: 30px;
+                                border-radius: 50%;
+                                background-color: #ecebeb;
+                                cursor: pointer;
+
+                                .icon-container {
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: transparent;
+
+                                    .icon {
+                                        width: 100%;
+                                        height: 100%;
+                                        background-image: url($checkIcon);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: 50%;
+                                    }
+                                }
+
+                                &:hover {
+                                    background-color: #2cc8b3;
+
+                                    .icon-container {
+                                        background-color: transparent;
+                                        .icon {
+                                            filter: saturate(100%) brightness(0) invert(1);
+                                        }
+                                    }
+                                }
+                            }
+
+                            .assign {
+                                select {
+                                    width: 100%;
+                                    padding: 8px;
+                                    border-radius: 8px;
+                                    border: none;
+                                    outline: none;
+                                }
+                            }
+                        }
+
+                        &.pending {
+                            .indicator {
+                                div {
+                                    background-color: $pendingColor;
+                                }
+                            }
+
+                            .request {
+                                // color: $pendingColor;
+                            }
+                        }
+
+                        &.approved {
+                            .indicator {
+                                div {
+                                    background-color: $approvedColor;
+                                }
+                            }
+
+                            .request {
+                                // color: $approvedColor;
+                            }
+                        }
+
+                        &.assigned {
+                            .indicator {
+                                div {
+                                    background-color: $assignedColor;
+                                }
+                            }
+
+                            .request {
+                                // color: $assignedColor;
+                            }
+                        }
+                        &.overdue {
+                            .indicator {
+                                div {
+                                    background-color: $overdueColor;
+                                }
+                            }
+
+                            .request {
+                                // color: $overdueColor
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.filter-item {
+    width: 100%;
+    height: auto;
+    padding: 0 10px;
+    margin-bottom: 10px;
+
+    label {
+        margin: 0;
+    }
+
+    select {
+        width: 100%;
+        padding: 8px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
     }
 }
