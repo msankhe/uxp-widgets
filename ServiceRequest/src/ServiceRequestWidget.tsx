@@ -140,30 +140,6 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
         console.log(showModal)
     }, [showModal])
 
-    // get invisible list item count & is last item is visible
-    const checkVisibility = (): [number, boolean] => {
-        let listDetails = listRef.current.getBoundingClientRect();
-        let items = document.querySelectorAll(".list-thumbnail");
-        let itemsArr = [].slice.call(items);
-
-        let count = 0;
-        let lastVisible = false;
-
-        itemsArr.map((item: HTMLElement, key: number) => {
-            let iDet = item.getBoundingClientRect();
-            if ((iDet.top >= listDetails.top + listDetails.height) || (iDet.top < listDetails.top)) {
-                count++;
-            }
-            else {
-                if (key == (itemsArr.length - 1)) {
-                    lastVisible = true;
-                }
-            }
-        })
-
-        return [count, lastVisible];
-    }
-
     // toggle scroll buttons
     const toggleFooter = () => {
         // 
@@ -171,15 +147,16 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
         let showUp = false;
         let showDown = false;
 
-        let total = data.length;
-        let [invisible, isLastVisible] = checkVisibility();
+        let listDetails = listRef.current.getBoundingClientRect();
+        let lastItemDetails = listItemsRef.current[data.length - 1].getBoundingClientRect();
 
-        if (invisible > 0) {
+
+        if (listDetails.height < (lastItemDetails.height * data.length)) {
             showFooter = true;
             showDown = true;
         }
 
-        if (isLastVisible) showDown = false;
+        if (!((lastItemDetails.top >= listDetails.top + listDetails.height) || (lastItemDetails.top < listDetails.top))) { showDown = false };
 
         if (currentKey > 0) {
             showUp = true;
@@ -194,12 +171,12 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
     const scrollItemToView = (key: number) => {
 
         let nextItemDetails = listItemsRef.current[key].getBoundingClientRect();
-        let scrollTop = nextItemDetails.height * key; 
+        let scrollTop = nextItemDetails.height * key;
 
         listRef.current.scrollTo({
             top: scrollTop,
             behavior: 'smooth'
-          });
+        });
     }
 
     // handle click on scroll button
@@ -213,7 +190,7 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
         }
         else {
             curKey = curKey + props.scrollStep;
-            if (curKey >= data.length) {curKey = (data.length - 1)};
+            if (curKey >= data.length) { curKey = (data.length - 1) };
         }
 
         setCurrentKey(curKey);
@@ -339,7 +316,7 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
             }
 
         </div>
-        
+
         <ServiceModal show={showModal} onClose={() => setShowModal(false)} data={data} />
     </>);
 }
