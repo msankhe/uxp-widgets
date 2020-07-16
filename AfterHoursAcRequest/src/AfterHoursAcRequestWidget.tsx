@@ -115,7 +115,7 @@ const AfterHoursAcRequestWidget = (props: React.PropsWithChildren<IProps>) => {
     const [showScrollUp, setShowScrollUp] = React.useState(false);
     const [showScrollDown, setShowScrollDown] = React.useState(false);
 
-    const [showModal, setShowModal] = React.useState(true)
+    const [showModal, setShowModal] = React.useState(false)
 
     // toggle scroll buttons
     React.useEffect(() => {
