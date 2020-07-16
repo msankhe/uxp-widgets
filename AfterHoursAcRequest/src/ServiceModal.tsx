@@ -41,7 +41,7 @@ const ServiceModal = (props: React.PropsWithChildren<IProps>) => {
     const headerContent = <div className="srm-header">
         <div className="title">
             <div className="icon"></div>
-            <div className="text">Service Requests</div>
+            <div className="text">A/C Extension Requests</div>
         </div>
 
         <div className="filters">
