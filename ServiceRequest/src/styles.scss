@@ -2,8 +2,8 @@ $acIcon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAw
 $arrowIcon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNi4xNCIgaGVpZ2h0PSIxMC40MjMiIHZpZXdCb3g9IjAgMCAxNi4xNCAxMC40MjMiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOiM0MjQyNDI7b3BhY2l0eTowLjcwMjt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik03LjIxNCwyMC44MDguMzUyLDEzLjk0NmExLjIwNiwxLjIwNiwwLDAsMSwwLTEuNzFsMS4xNC0xLjE0YTEuMjA2LDEuMjA2LDAsMCwxLDEuNzEsMGw0Ljg2NCw0Ljg2NEwxMi45MywxMS4xYTEuMjA2LDEuMjA2LDAsMCwxLDEuNzEsMGwxLjE0LDEuMTRhMS4yMDYsMS4yMDYsMCwwLDEsMCwxLjcxTDguOTE5LDIwLjgwOEExLjIsMS4yLDAsMCwxLDcuMjE0LDIwLjgwOFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDA0IC0xMC43NCkiLz48L3N2Zz4=";
 $iconBG: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNSIgaGVpZ2h0PSIzNSIgdmlld0JveD0iMCAwIDM1IDM1Ij48ZGVmcz48c3R5bGU+LmF7ZmlsbDojNzA3MDcwO29wYWNpdHk6MC4xNDt9PC9zdHlsZT48L2RlZnM+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4xMzQpIj48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTcuNSIgY3k9IjE3LjUiIHI9IjE3LjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjEzNCkiLz48L2c+PC9zdmc+";
 $pendingColor: #ffa133;
-$overdueColor: #EC4B7B;
-$approvedColor: #2CC8B3;
+$overdueColor: #ec4b7b;
+$approvedColor: #2cc8b3;
 $assignedColor: #72a5f3;
 
 .list-container {
@@ -53,9 +53,18 @@ $assignedColor: #72a5f3;
                     height: auto;
                     padding: 6px 15px;
                     border-radius: 50px;
-                    background-color: #EC4B7B;
-                    color: white;
                     margin-left: 15px;
+
+                    &.high {
+                        background-color: #ec4b7b;
+                        color: white;
+                    }
+
+                    &.low {
+                        background-color: #707070;
+                        color: white;
+                    }
+
                 }
             }
         }
@@ -83,8 +92,8 @@ $assignedColor: #72a5f3;
             }
 
             .icon-placeholder {
-                width: 40px;
-                height: 40px;
+                width: 35px;
+                height: 35px;
                 position: relative;
                 background-image: url($iconBG);
                 background-position: center;
@@ -255,7 +264,7 @@ $assignedColor: #72a5f3;
 
                 .icon-container {
                     .icon {
-                        transform: rotate(180deg); 
+                        transform: rotate(180deg);
                     }
                 }
             }
