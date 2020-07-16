@@ -30,18 +30,17 @@ interface IWidgetConfig {
 }
 
 interface IWidgetObject {
-    guid:  string,
+    guid: string,
     name: string,
     widget: any,
-    configs?: IWidgetConfig,
-    vendor?: string,
-    tags?: string[]
+    configs?: IWidgetConfig
 }
 declare global {
     interface Window {
         registerWidget(config: IWidgetObject): void
     }
 }
+
 interface ISidebarLink {
     link: string,
     target?: string,

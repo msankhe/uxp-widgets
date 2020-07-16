@@ -118,6 +118,15 @@
         }
 
         renderDashboard(contextProviderValue);
+        function updateCredentials(lucyUrl,apiKey) {
+            contextProviderValue.lucyUrl = lucyUrl;
+            contextProviderValue.apiKey = apiKey;
+            renderDashboard(contextProviderValue);
+        }
+        /*
+        Call this to link this setup with an iviva account
+        updateCredentials('http://demo.lucy.iviva.cloud','SC:demo:0a22e95581330018');
+        */
 
     </script>
 
