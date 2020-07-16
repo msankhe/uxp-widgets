@@ -192,12 +192,14 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
 
     // scroll to list item
     const scrollItemToView = (key: number) => {
-        let itemRef = listItemsRef.current[key];
 
-        itemRef.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-        });
+        let nextItemDetails = listItemsRef.current[key].getBoundingClientRect();
+        let scrollTop = nextItemDetails.height * key; 
+
+        listRef.current.scrollTo({
+            top: scrollTop,
+            behavior: 'smooth'
+          });
     }
 
     // handle click on scroll button
@@ -211,7 +213,7 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
         }
         else {
             curKey = curKey + props.scrollStep;
-            if (curKey > data.length) curKey = (data.length - 1);
+            if (curKey >= data.length) {curKey = (data.length - 1)};
         }
 
         setCurrentKey(curKey);

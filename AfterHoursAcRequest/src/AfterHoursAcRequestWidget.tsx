@@ -179,12 +179,13 @@ const AfterHoursAcRequestWidget = (props: React.PropsWithChildren<IProps>) => {
 
     // scroll to list item
     const scrollItemToView = (key: number) => {
-        let itemRef = listItemsRef.current[key];
+        let nextItemDetails = listItemsRef.current[key].getBoundingClientRect();
+        let scrollTop = nextItemDetails.height * key; 
 
-        itemRef.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-        });
+        listRef.current.scrollTo({
+            top: scrollTop,
+            behavior: 'smooth'
+          });
     }
 
     // handle click on scroll button
