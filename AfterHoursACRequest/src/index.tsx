@@ -3,7 +3,7 @@ import {registerWidget, IContextProvider, } from './uxp';
 import AfterHoursAcRequestWidget from "./AfterHoursAcRequestWidget";
 
 registerWidget({
-    "guid": "08b88339-d2eb-4e72-a7ff-e457e8f3228a",
+    "id": "08b88339-d2eb-4e72-a7ff-e457e8f3228a",
     "name": "After Hours Ac Request",
     "widget": AfterHoursAcRequestWidget,
     "configs": {
