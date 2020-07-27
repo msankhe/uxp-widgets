@@ -176,7 +176,11 @@ $banner: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAw
     display: flex;
     align-items: center;
     justify-content: start;
-    padding: 15px 0;
+    padding: 15px 20px;
+
+    &:nth-child(odd) {
+        background-color: #F1FBFC;
+    }
 
     .icon-container {
         width: 30px;
