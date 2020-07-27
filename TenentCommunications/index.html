@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="https://static.iviva.com/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <!-- <link rel="stylesheet" type="text/css" href="./node_modules/react-grid-layout/css/styles.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="./node_modules/react-resizable/css/styles.css"> -->
+
+    <link rel="stylesheet" type="text/css" href="https://uxp.s3.amazonaws.com/dist/master/uxp_dashboard.css">
+
+
+    <title>React Grid</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- Dependencies -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/recharts/1.8.5/Recharts.min.js"></script>
+
+    <!-- Main -->
+    <script src="https://uxp.s3.amazonaws.com/dist/master/main.js"></script>
+
+    <script>
+
+        window.Widgets = [];
+        // scripts
+        let scripts = [
+            "./dist/main.js",
+        ]
+
+        // context provider value
+        // define all variables here
+        // ex : logged-in user details, theme, base urls
+        let installedWidgets = [];
+        try {
+            installedWidgets = JSON.parse(localStorage.getItem('uxp-widgets')) || [];
+        } catch (e) {
+
+        }
+        let deletedWidgets = [];
+        let contextProviderValue = {
+            userKey: "user_001",
+            root: "root",
+            sidebarItems: () => (window.SidebarLinks || []).map(s => s.id),
+            scriptFiles: scripts, // widget script files
+            apiKey: 'SC:lucy1:0a54e97781330018',
+            widgetManager: {
+                loadFromMarketPlace: false,
+                url: "http://lucy1.local:5000/api/UXP/search",
+                getInstalledWidgets: () => installedWidgets,
+                getDeletedWidgets: () => deletedWidgets,
+                onWidgetsChanged: (added, deleted) => {
+                    return new Promise((resolve, reject) => {
+                        installedWidgets = added;
+                        deletedWidgets = deleted;
+                        localStorage.setItem('uxp-widgets', JSON.stringify(installedWidgets));
+                        resolve();
+                    });
+                }
+            }
+        }
+
+        renderDashboard(contextProviderValue);
+
+        function updateCredentials(lucyUrl, apiKey) {
+            contextProviderValue.lucyUrl = lucyUrl;
+            contextProviderValue.apiKey = apiKey;
+            renderDashboard(contextProviderValue);
+        }
+        /*
+        Call this to link this setup with an iviva account
+        updateCredentials('http://demo.lucy.iviva.cloud','SC:demo:0a22e95581330018');
+        */
+
+    </script>
+
+
+
+</body>
+
+</html>
