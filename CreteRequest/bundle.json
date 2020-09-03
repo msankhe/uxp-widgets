@@ -1,0 +1,16 @@
+{
+    "id":"cf99db8b-d88b-4e67-a770-a7844a3c9e76",
+    "author":"",
+    "widgets":[
+        {
+            "id":"CreteRequest",
+            "title":"CreteRequest",
+            "description":"A sample widget"
+        }
+    ],
+    "sidebarLinks":[
+        {
+            "id":"CreteRequestLink"
+        }
+    ]
+}
