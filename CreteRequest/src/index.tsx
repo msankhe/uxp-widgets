@@ -78,8 +78,8 @@ const CreteRequestWidget: React.FunctionComponent<ICreteRequestProps> = (props) 
                     />
                 </FormField>
 
-                <FormField className="no-padding no-margin">
-                    <FormField inline>
+                <div className="form-row">
+                    <FormField >
                         <Select
                             selected={location}
                             options={[
@@ -91,7 +91,7 @@ const CreteRequestWidget: React.FunctionComponent<ICreteRequestProps> = (props) 
                             placeholder="Location"
                         />
                     </FormField>
-                    <FormField inline >
+                    <FormField  >
                         <Select
                             selected={level}
                             options={[
@@ -104,10 +104,10 @@ const CreteRequestWidget: React.FunctionComponent<ICreteRequestProps> = (props) 
                             placeholder="Level"
                         />
                     </FormField>
-                </FormField>
+                </div>
 
-                <FormField className="no-padding no-margin">
-                    <FormField inline >
+                <div className="form-row">
+                    <FormField  >
                         <Select
                             selected={priority}
                             options={[
@@ -120,7 +120,7 @@ const CreteRequestWidget: React.FunctionComponent<ICreteRequestProps> = (props) 
                         />
                     </FormField>
 
-                    <FormField inline >
+                    <FormField  >
                         <Select
                             selected={resolveBy}
                             options={[
@@ -131,10 +131,10 @@ const CreteRequestWidget: React.FunctionComponent<ICreteRequestProps> = (props) 
                             placeholder="Resolution By"
                         />
                     </FormField>
-                </FormField>
+                </div>
 
-                <FormField className="no-padding no-margin">
-                    <FormField inline >
+                <div className="form-row">
+                    <FormField  >
                         <Select
                             selected={businessUnit}
                             options={[
@@ -146,7 +146,7 @@ const CreteRequestWidget: React.FunctionComponent<ICreteRequestProps> = (props) 
                         />
                     </FormField>
 
-                    <FormField inline >
+                    <FormField  >
                         <Select
                             selected={property}
                             options={[
@@ -159,14 +159,25 @@ const CreteRequestWidget: React.FunctionComponent<ICreteRequestProps> = (props) 
                             placeholder="Property"
                         />
                     </FormField>
-                </FormField>
+                </div>
 
-                <FormField inline >
-                    upload image
-                </FormField>
-
+                <div className="form-row">
+                    <FormField inline >
+                        <div className="upload-button">
+                            <div className="icon"></div>
+                            <div className="label">Upload Image</div>
+                        </div>
+                    </FormField>
+                    <FormField inline >
+                        <div className="upload-button">
+                            <div className="icon"></div>
+                            <div className="label">Upload Image</div>
+                        </div>
+                    </FormField>
+                </div>
             </>
-        },
+        }
+        
     ]
 
     return (<Modal
@@ -179,19 +190,16 @@ const CreteRequestWidget: React.FunctionComponent<ICreteRequestProps> = (props) 
         showCloseButton={false}
     >
 
-        <div className="container">
-            <Wizard
-                steps={steps}
-                onComplete={() => { }}
-            />
-        </div>
-
+        <Wizard
+            steps={steps}
+            onComplete={() => { }}
+        />
     </Modal>)
 };
 
 
 registerLink({
     id: "CreteRequest",
-    label: "Crete Request",
+    label: "Create Request",
     component: CreteRequestWidget
 });
