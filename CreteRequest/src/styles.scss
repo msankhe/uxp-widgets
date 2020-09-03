@@ -3,7 +3,7 @@ $uploadIcon : "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
 .modal-container {
     &.create-request-modal {
         justify-content: flex-start;
-
+        
         .modal-container-top-bar {
             width: 100%;
             height: auto;
@@ -16,6 +16,7 @@ $uploadIcon : "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
             width: auto;
             min-width: 40%;
             min-height: 80%;
+            max-height: 85%;
 
             .modal-header {
                 display: none;
