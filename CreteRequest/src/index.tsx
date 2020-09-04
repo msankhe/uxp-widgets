@@ -66,7 +66,6 @@ const CreteRequestWidget: React.FunctionComponent<ICreteRequestProps> = (props) 
             </FormField>
         },
         {
-            onNext: () => "",
             id: "maintenance request",
             title: "Maintenance Request",
             render: (props) => <>
@@ -176,8 +175,215 @@ const CreteRequestWidget: React.FunctionComponent<ICreteRequestProps> = (props) 
                     </FormField>
                 </div>
             </>
+        },
+        {
+            id: "in-build filming",
+            title: "In-building Filming",
+            render: (props) => <>
+                <FormField>
+                    <Input
+                        value={requestLabel}
+                        onChange={val => setRequestLabel(val)}
+                        placeholder="Label your work request"
+                    />
+                </FormField>
+
+                <div className="form-row">
+                    <FormField >
+                        <Select
+                            selected={location}
+                            options={[
+                                { label: "East Wing", value: "East Wing" },
+                                { label: "West Wing", value: "West Wing" },
+                                { label: "Lobby", value: "Lobby" }
+                            ]}
+                            onChange={val => setLocation(val)}
+                            placeholder="Location"
+                        />
+                    </FormField>
+                    <FormField  >
+                        <Select
+                            selected={level}
+                            options={[
+                                { label: "Level 01", value: "Level 01" },
+                                { label: "Level 02", value: "Level 02" },
+                                { label: "Level 03", value: "Level 03" },
+                                { label: "Level 04", value: "Level 04" }
+                            ]}
+                            onChange={val => setLevel(val)}
+                            placeholder="Level"
+                        />
+                    </FormField>
+                </div>
+
+                <div className="form-row">
+                    <FormField  >
+                        <Select
+                            selected={priority}
+                            options={[
+                                { label: "Low", value: "Low" },
+                                { label: "Medium", value: "Medium" },
+                                { label: "Critical", value: "Critical" }
+                            ]}
+                            onChange={val => setPriority(val)}
+                            placeholder="Priority"
+                        />
+                    </FormField>
+
+                    <FormField  >
+                        <Select
+                            selected={resolveBy}
+                            options={[
+                                { label: "in 30 minutes", value: "in 30 minutes" },
+                                { label: "in 1 hour", value: "in 1 hour" }
+                            ]}
+                            onChange={val => setResolveBy(val)}
+                            placeholder="Resolution By"
+                        />
+                    </FormField>
+                </div>
+
+                <div className="form-row">
+                    <FormField  >
+                        <Select
+                            selected={businessUnit}
+                            options={[
+                                { label: "Marketing", value: "Marketing" },
+                                { label: "Production", value: "Production" }
+                            ]}
+                            onChange={val => setBusinessUnit(val)}
+                            placeholder="Business Unit"
+                        />
+                    </FormField>
+
+                    <FormField  >
+                        <Select
+                            selected={property}
+                            options={[
+                                { label: "Business Park 01", value: "Business Park 01" },
+                                { label: "Business Park 02", value: "Business Park 02" },
+                                { label: "Business Park 03", value: "Business Park 03" },
+                                { label: "Business Park 04", value: "Business Park 04" }
+                            ]}
+                            onChange={val => setProperty(val)}
+                            placeholder="Property"
+                        />
+                    </FormField>
+                </div>
+            </>
+        },
+        {
+            id: "handyman service",
+            title: "Handyman Service",
+            render: (props) => <>
+                <FormField>
+                    <Input
+                        value={requestLabel}
+                        onChange={val => setRequestLabel(val)}
+                        placeholder="Label your work request"
+                    />
+                </FormField>
+
+                <div className="form-row">
+                    <FormField >
+                        <Select
+                            selected={location}
+                            options={[
+                                { label: "East Wing", value: "East Wing" },
+                                { label: "West Wing", value: "West Wing" },
+                                { label: "Lobby", value: "Lobby" }
+                            ]}
+                            onChange={val => setLocation(val)}
+                            placeholder="Location"
+                        />
+                    </FormField>
+                    <FormField  >
+                        <Select
+                            selected={level}
+                            options={[
+                                { label: "Level 01", value: "Level 01" },
+                                { label: "Level 02", value: "Level 02" },
+                                { label: "Level 03", value: "Level 03" },
+                                { label: "Level 04", value: "Level 04" }
+                            ]}
+                            onChange={val => setLevel(val)}
+                            placeholder="Level"
+                        />
+                    </FormField>
+                </div>
+
+                <div className="form-row">
+                    <FormField  >
+                        <Select
+                            selected={priority}
+                            options={[
+                                { label: "Low", value: "Low" },
+                                { label: "Medium", value: "Medium" },
+                                { label: "Critical", value: "Critical" }
+                            ]}
+                            onChange={val => setPriority(val)}
+                            placeholder="Priority"
+                        />
+                    </FormField>
+
+                    <FormField  >
+                        <Select
+                            selected={resolveBy}
+                            options={[
+                                { label: "in 30 minutes", value: "in 30 minutes" },
+                                { label: "in 1 hour", value: "in 1 hour" }
+                            ]}
+                            onChange={val => setResolveBy(val)}
+                            placeholder="Resolution By"
+                        />
+                    </FormField>
+                </div>
+
+                <div className="form-row">
+                    <FormField  >
+                        <Select
+                            selected={businessUnit}
+                            options={[
+                                { label: "Marketing", value: "Marketing" },
+                                { label: "Production", value: "Production" }
+                            ]}
+                            onChange={val => setBusinessUnit(val)}
+                            placeholder="Business Unit"
+                        />
+                    </FormField>
+
+                    <FormField  >
+                        <Select
+                            selected={property}
+                            options={[
+                                { label: "Business Park 01", value: "Business Park 01" },
+                                { label: "Business Park 02", value: "Business Park 02" },
+                                { label: "Business Park 03", value: "Business Park 03" },
+                                { label: "Business Park 04", value: "Business Park 04" }
+                            ]}
+                            onChange={val => setProperty(val)}
+                            placeholder="Property"
+                        />
+                    </FormField>
+                </div>
+
+                <div className="form-row">
+                    <FormField inline >
+                        <div className="upload-button">
+                            <div className="icon"></div>
+                            <div className="label">Upload Image</div>
+                        </div>
+                    </FormField>
+                    <FormField inline >
+                        <div className="upload-button">
+                            <div className="icon"></div>
+                            <div className="label">Upload Image</div>
+                        </div>
+                    </FormField>
+                </div>
+            </>
         }
-        
+
     ]
 
     return (<Modal
