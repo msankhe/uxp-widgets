@@ -1,0 +1,16 @@
+{
+    "id":"2c7c2ab5-dcb0-4ed2-fca2-16b908aeaeac",
+    "author":"",
+    "widgets":[
+        {
+            "id":"filter_sample",
+            "title":"filter_sample",
+            "description":"A sample widget"
+        }
+    ],
+    "sidebarLinks":[
+        {
+            "id":"filter_sampleLink"
+        }
+    ]
+}
