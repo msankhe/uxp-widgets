@@ -1,6 +1,6 @@
 import * as React from "react";
 import { registerWidget, registerLink, IContextProvider, } from './uxp';
-import { FormField, Input, Label, TitleBar, WidgetWrapper } from "uxp/components";
+import { FormField, Input, Label, TitleBar, Tooltip, useToast, WidgetWrapper } from "uxp/components";
 import './styles.scss';
 import FilterPanel from "./FilterPanel";
 
@@ -29,6 +29,20 @@ const Filter_sampleWidget: React.FunctionComponent<IFilter_sampleProps> = (props
         "--x4": x4
     }
 
+    let Toast = useToast();
+
+    const copyCode = () => {
+        let val = `transition: transform ${ot}ms cubic-bezier(${x1}, ${x2}, ${x3}, ${x4}) ${od}ms`;
+
+        let el = document.createElement("textarea");
+        el.value = val
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+
+        Toast.success("Copied successfully")
+    }
 
     return (
         <WidgetWrapper>
@@ -57,45 +71,71 @@ const Filter_sampleWidget: React.FunctionComponent<IFilter_sampleProps> = (props
                     <FormField >
                         <Label>cubic-bezier</Label>
                         <div className="">
-                            <FormField >
-                                <InputRange
-                                    maxValue={1}
-                                    minValue={0}
-                                    value={x1}
-                                    onChange={value => setX1(value)}
-                                    step={0.01}
-                                />
+                            <div className="row">
+                                <FormField className="long" >
 
-                            </FormField>
-                            <FormField >
-                                <InputRange
-                                    maxValue={10}
-                                    minValue={-10}
-                                    value={x2}
-                                    onChange={value => setX2(value)}
-                                    step={0.01}
-                                />
-                            </FormField>
-                            <FormField >
-                                <InputRange
-                                    maxValue={1}
-                                    minValue={0}
-                                    value={x3}
-                                    onChange={value => setX3(value)}
-                                    step={0.01}
-                                />
-                            </FormField>
-                            <FormField >
-                                <InputRange
-                                    maxValue={10}
-                                    minValue={-10}
-                                    value={x4}
-                                    onChange={value => setX4(value)}
-                                    step={0.01}
-                                />
-                            </FormField>
+                                    <InputRange
+                                        maxValue={1}
+                                        minValue={0}
+                                        value={x1}
+                                        onChange={value => setX1(value)}
+                                        step={0.01}
+                                    />
+                                </FormField>
 
+                                <FormField className="short"  >
+                                    <Input value={x1} onChange={val => setX1(val)} />
+                                </FormField>
+                            </div>
+                            <div className="row">
 
+                                <FormField className="long">
+                                    <InputRange
+                                        maxValue={10}
+                                        minValue={-10}
+                                        value={x2}
+                                        onChange={value => setX2(value)}
+                                        step={0.01}
+                                    />
+                                </FormField>
+
+                                <FormField className="short"  >
+                                    <Input value={x2} onChange={val => setX2(val)} />
+                                </FormField>
+                            </div>
+
+                            <div className="row">
+
+                                <FormField className="long">
+                                    <InputRange
+                                        maxValue={1}
+                                        minValue={0}
+                                        value={x3}
+                                        onChange={value => setX3(value)}
+                                        step={0.01}
+                                    />
+                                </FormField>
+
+                                <FormField className="short"  >
+                                    <Input value={x3} onChange={val => setX3(val)} />
+                                </FormField>
+                            </div>
+                            <div className="row">
+
+                                <FormField className="long">
+                                    <InputRange
+                                        maxValue={10}
+                                        minValue={-10}
+                                        value={x4}
+                                        onChange={value => setX4(value)}
+                                        step={0.01}
+                                    />
+                                </FormField>
+
+                                <FormField className="short"  >
+                                    <Input value={x4} onChange={val => setX4(val)} />
+                                </FormField>
+                            </div>
                         </div>
                     </FormField>
                 </div>
@@ -114,7 +154,11 @@ const Filter_sampleWidget: React.FunctionComponent<IFilter_sampleProps> = (props
 
                 <div className="code">
                     <FormField>
-                        <code>transition: transform <span>{ot}ms</span> cubic-bezier(<span>{x1}</span>, <span>{x2}</span>, <span>{x3}</span>, <span>{x4}</span>) <span>{od}ms</span>;</code>
+                        <Tooltip content="Click to Copy">
+                            <code onClick={copyCode}>
+                                transition: transform <span>{ot}ms</span> cubic-bezier(<span>{x1}</span>, <span>{x2}</span>, <span>{x3}</span>, <span>{x4}</span>) <span>{od}ms</span>;
+                            </code>
+                        </Tooltip>
                     </FormField>
                 </div>
             </div>

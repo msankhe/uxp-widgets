@@ -31,24 +31,35 @@
 
     .uxp-form-group {
         margin: 0;
+
+        &.long {
+            width: 70%;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        &.short {
+            width: 30%;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
     }
-    
 }
 
 code {
     padding: 25px;
     background-color: black;
-    color: white!important;
-    border-radius: 10px;  
-    
+    color: white !important;
+    border-radius: 10px;
+    cursor: pointer;
+
     span {
         background-color: blueviolet;
         padding: 5px;
         border-radius: 10px;
         margin: 4px;
     }
-         
- }
+}
 
 .ff-fade-enter {
     .uxp-filter-panel {
