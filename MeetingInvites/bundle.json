@@ -1,0 +1,11 @@
+{
+    "id":"b7d0fba1-3543-4c9c-9e8c-3d38d5058dbb",
+    "author":"dinesh_gamage",
+    "widgets":[
+        {
+            "id":"MeetingInvites",
+            "title":"MeetingInvites",
+            "description":"A Widget To Manage Meeting Invites"
+        }
+    ]
+}
