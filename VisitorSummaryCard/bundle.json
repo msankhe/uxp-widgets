@@ -1,0 +1,11 @@
+{
+    "id":"c6bb6b61-4606-4b36-c83c-3eaa417ba8a4",
+    "author":"dinesh_gamage",
+    "widgets":[
+        {
+            "id":"VisitorSummaryCard",
+            "title":"VisitorSummaryCard",
+            "description":"Widget to manage visitors"
+        }
+    ]
+}
