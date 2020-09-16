@@ -73,10 +73,15 @@ $assignedColor: #72a5f3;
 
     .body {
         width: 100%;
-        height: auto;
-        max-height: 100%;
-        padding: 8px 15px;
+        height: 100%;
         overflow: auto;
+        padding: 0px;
+
+        .data-list-item {
+            &:nth-child(odd) {
+                background-color: #f8f8f8;
+            }
+        }
 
         .list-thumbnail {
             position: relative;
@@ -290,8 +295,8 @@ $assignedColor: #72a5f3;
 }
 
 .modal-container {
-    .modal-panel {
-        &.sr-modal {
+    &.sr-modal {
+        .modal-panel {
             .srm-header {
                 width: 100%;
                 height: auto;

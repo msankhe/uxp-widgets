@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ServiceRequestWidget from './ServiceRequestWidget';
 import { registerWidget } from './uxp';
+import './styles.scss';
 
 interface IProps {}
 

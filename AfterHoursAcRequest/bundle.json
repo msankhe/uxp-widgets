@@ -1,0 +1,16 @@
+{
+    "id":"f0bbe215-76c7-4f38-d0a6-e8b0adeeeeeb",
+    "author":"",
+    "widgets":[
+        {
+            "id":"AfterHoursAcRequest",
+            "title":"AfterHoursAcRequest",
+            "description":"A sample widget"
+        }
+    ],
+    "sidebarLinks":[
+        {
+            "id":"AfterHoursAcRequestLink"
+        }
+    ]
+}

@@ -58,7 +58,7 @@ const ServiceModal = (props: React.PropsWithChildren<IProps>) => {
         onOpen={() => { }}
         onClose={() => setShow(false)}
         headerContent={headerContent}
-        class="sr-modal"
+        className="sr-modal"
     >
 
         <div className="data-list">

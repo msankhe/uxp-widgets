@@ -1,6 +1,7 @@
 import * as React from "react";
 import {registerWidget, IContextProvider, } from './uxp';
 import AfterHoursAcRequestWidget from "./AfterHoursAcRequestWidget";
+import './styles.scss';
 
 registerWidget({
     "id": "08b88339-d2eb-4e72-a7ff-e457e8f3228a",

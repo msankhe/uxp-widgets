@@ -2,7 +2,6 @@ import * as React from "react";
 import { IContextProvider, } from './uxp';
 import { DataList, FilterPanel, FormField, Label, SearchBox, Select, WidgetWrapper } from "uxp/components";
 
-import './styles.scss';
 import ServiceModal from "./ServiceModal";
 
 type IPriority = 'high' | "low";
@@ -10,7 +9,6 @@ interface IProps {
     priority: IPriority
     expandedFilterPanel?: boolean,
     uxpContext?: IContextProvider,
-    scrollStep?: number,
 }
 
 interface IDataItem {
@@ -208,7 +206,6 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
 
 // default props
 ServiceRequestWidget.defaultProps = {
-    scrollStep: 5,
     expandedFilterPanel: false
 }
 
