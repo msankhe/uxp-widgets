@@ -1,0 +1,11 @@
+{
+    "id":"01ec3b10-1aa3-4c84-d340-b0f286452761",
+    "author":"dinesh_gamage",
+    "widgets":[
+        {
+            "id":"ServiceRequest",
+            "title":"ServiceRequest",
+            "description":"A sample widget"
+        }
+    ]
+}

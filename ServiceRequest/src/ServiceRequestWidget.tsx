@@ -1,6 +1,6 @@
 import * as React from "react";
 import { IContextProvider, } from './uxp';
-import { FilterPanel } from "uxp/components";
+import { DataList, FilterPanel, FormField, Label, SearchBox, Select, WidgetWrapper } from "uxp/components";
 
 import './styles.scss';
 import ServiceModal from "./ServiceModal";
@@ -117,117 +117,17 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
         },
     ]
 
+    let [sortBy, setSortBy] = React.useState<string>("")
+    let [search, setSearch] = React.useState<string>("")
+
     // refs
     const listContainerRef = React.useRef(null);
-    const listRef = React.useRef(null);
-    const listItemsRef = React.useRef([]);
-
-    // state
-    const [currentKey, setCurrentKey] = React.useState<number | 0>(0);
-    const [showFooter, setShowFooter] = React.useState(false);
-    const [showScrollUp, setShowScrollUp] = React.useState(false);
-    const [showScrollDown, setShowScrollDown] = React.useState(false);
-
     const [showModal, setShowModal] = React.useState(false)
 
-    // toggle scroll buttons
-    React.useEffect(() => {
-        toggleFooter();
-    }, [currentKey])
-
-    React.useEffect(() => {
-        console.log("show modal")
-        console.log(showModal)
-    }, [showModal])
-
-    // toggle scroll buttons
-    const toggleFooter = () => {
-        // 
-        let showFooter = false;
-        let showUp = false;
-        let showDown = false;
-
-        let listDetails = listRef.current.getBoundingClientRect();
-        let lastItemDetails = listItemsRef.current[data.length - 1].getBoundingClientRect();
-
-
-        if (listDetails.height < (lastItemDetails.height * data.length)) {
-            showFooter = true;
-            showDown = true;
-        }
-
-        if (!((lastItemDetails.top >= listDetails.top + listDetails.height) || (lastItemDetails.top < listDetails.top))) { showDown = false };
-
-        if (currentKey > 0) {
-            showUp = true;
-        }
-
-        setShowFooter(showFooter);
-        setShowScrollUp(showUp);
-        setShowScrollDown(showDown)
-    }
-
-    // scroll to list item
-    const scrollItemToView = (key: number) => {
-
-        let nextItemDetails = listItemsRef.current[key].getBoundingClientRect();
-        let scrollTop = nextItemDetails.height * key;
-
-        listRef.current.scrollTo({
-            top: scrollTop,
-            behavior: 'smooth'
-        });
-    }
-
-    // handle click on scroll button
-    const onClickScrollHandler = (direction: string) => {
-        // get key
-        let curKey = currentKey;
-
-        if (direction == "up") {
-            curKey = curKey - props.scrollStep;
-            if (curKey < 0) curKey = 0;
-        }
-        else {
-            curKey = curKey + props.scrollStep;
-            if (curKey >= data.length) { curKey = (data.length - 1) };
-        }
-
-        setCurrentKey(curKey);
-        scrollItemToView(curKey)
-    }
-
-    // on scroll list container
-    const onScrollList = (e: React.UIEvent<HTMLElement | Event>) => {
-        let listContainerDetails = listContainerRef.current.getBoundingClientRect();
-
-        data.map((item: IDataItem, key: number) => {
-            let element = listItemsRef.current[key];
-            let boundDetails = element.getBoundingClientRect();
-
-            if (boundDetails.top >= listContainerDetails.top + 60 && boundDetails.top <= listContainerDetails.top + 120) {
-                setCurrentKey(key)
-            }
-        })
-    }
-
-
-    let filterPanelProps: any = {
-        onOpen: () => { },
-        onClose: () => { }
-    }
-
-    if (props.expandedFilterPanel) {
-        filterPanelProps.fillContainer = listContainerRef
-    }
-
     // render
-    return (<>
-        <div className={`list-container ${showFooter && " has-footer"} ${(showScrollDown && showScrollUp) ? " full" : " half"}`}
-            ref={listContainerRef}
-            onScroll={onScrollList}
-        >
-            <div className="header">
+    return (<WidgetWrapper>
+        <div className={`list-container`} ref={listContainerRef} >
+            <div className="header uxp-drag-handler">
 
                 <div className="title">
                     <div className="icon"></div>
@@ -235,35 +135,45 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
                 </div>
 
                 <div className="filter-container">
-                    <FilterPanel {...filterPanelProps} >
-
-                        <div className="filter-item">
-                            <label htmlFor="">Filter By</label>
-                            <select name="" id="">
-                                <option value=""> Select a Filter</option>
-                            </select>
-                        </div>
-
-                        <div className="filter-item">
-                            <label htmlFor="">Sort By</label>
-                            <select name="" id="">
-                                <option value=""> Select a Option</option>
-                            </select>
-                        </div>
+                    <FilterPanel
+                        fillContainer={props.expandedFilterPanel ?listContainerRef : null}
+                        enableClear={(sortBy && sortBy.length > 0) || (search && search.trim().length > 0)}
+                        onClear={() => {
+                            setSortBy("")
+                            setSearch("")
+                        }}
+                    >
+                        <FormField>
+                            <SearchBox value={search} onChange={val => setSearch(val)} />
+                        </FormField>
+                        <FormField>
+                            <Label>Sort By</Label>
+                            <Select
+                                selected={sortBy}
+                                options={[
+                                    { label: "Request Number", value: "req.no" },
+                                    { label: "Zone", value: "zone" },
+                                    { label: "Priority", value: "priority" }
+                                ]}
+                                placeholder="--Select an option"
+                                onChange={val => { setSortBy(val) }}
+                            />
+                        </FormField>
 
                     </FilterPanel>
                 </div>
 
             </div>
 
-            <div className="body"
-                ref={listRef}
-            >
+            <div className="body">
 
-                {
-                    data.map((item: IDataItem, key: number) => {
+                <DataList
+                    data={data}
+                    pageSize={6}
+
+                    renderItem={(item: IDataItem, key: number) => {
                         return (<div className={`list-thumbnail ${item.status.toLowerCase()}`}
-                            ref={(el: any) => (listItemsRef.current[key] = el)}
+                            key={key}
                             onClick={() => setShowModal(true)}
                         >
                             <div className="icon-placeholder">
@@ -285,40 +195,15 @@ const ServiceRequestWidget = (props: React.PropsWithChildren<IProps>) => {
                                 <div className="date">{item.date}</div>
                             </div>
                         </div>);
-                    })
-                }
+                    }}
 
+                />
 
             </div>
 
-            {
-                showFooter &&
-                <div className="footer">
-                    {
-                        showScrollUp &&
-                        <div className="scroll-btn scroll-up" onClick={() => onClickScrollHandler("up")}>
-                            <div className="icon-container">
-                                <div className="icon"></div>
-                            </div>
-                        </div>
-                    }
-
-                    {
-                        showScrollDown &&
-                        <div className="scroll-btn scroll-down" onClick={() => onClickScrollHandler("down")}>
-                            <div className="icon-container">
-                                <div className="icon"></div>
-                            </div>
-                        </div>
-                    }
-
-                </div>
-            }
-
         </div>
-
         <ServiceModal show={showModal} onClose={() => setShowModal(false)} data={data} />
-    </>);
+    </WidgetWrapper>);
 }
 
 // default props

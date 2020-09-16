@@ -64,5 +64,11 @@ module.exports = {
         "react-dom": "ReactDOM",
         "recharts":"Recharts",
         "uxp/components":"UXPComponents",
+    },
+
+    
+    devServer:{
+        writeToDisk:true
     }
+
 };
