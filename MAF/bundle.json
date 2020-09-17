@@ -1,0 +1,16 @@
+{
+    "id":"7cde92e9-9752-493e-f47b-09aa9f5469b4",
+    "author":"",
+    "widgets":[
+        {
+            "id":"MAF",
+            "title":"MAF",
+            "description":"A sample widget"
+        }
+    ],
+    "sidebarLinks":[
+        {
+            "id":"MAFLink"
+        }
+    ]
+}
