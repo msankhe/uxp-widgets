@@ -74,8 +74,13 @@ interface IPartialContextProvider {
     userKey: string;
 }
 
+interface ILucyActionExecutionOptions {
+    /** Set this to true to parse the data as JSON and return it */
+    json?: boolean;
+}
+
 export interface IContextProvider extends IPartialContextProvider {   
-    executeAction:(model:string, action:string, parameters:any) => Promise<any>;
+    executeAction:(model:string, action:string, parameters:any, options?:ILucyActionExecutionOptions) => Promise<any>;
     fireEvent:(eventID: string) => Promise<void>;
     hasAppRole:(roles:string|string[]) => Promise<boolean>;
 }
