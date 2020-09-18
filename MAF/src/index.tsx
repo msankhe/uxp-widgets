@@ -6,6 +6,7 @@ import './styles.scss';
 import TaskList from "./components/TaskList";
 import Stats from "./components/Stats";
 import IncidentWidget from "./components/Incident";
+import DiscomfortZones from "./components/DiscomfortZones";
 
 
 registerWidget({
@@ -45,6 +46,20 @@ registerWidget({
             w: 25,
             h: 9,
             minW: 25,
+            minH: 9
+        }
+    }
+});
+
+registerWidget({
+    id: "DiscomfortZone",
+    name: "DiscomfortZone",
+    widget: DiscomfortZones,
+    configs: {
+        layout: {
+            w: 20,
+            h: 9,
+            minW: 20,
             minH: 9
         }
     }
