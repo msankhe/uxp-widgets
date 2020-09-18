@@ -127,15 +127,146 @@
                     font-weight: 800;
 
                     &.pending {
-                        background-color: #FFCE6580;
+                        background-color: #ffce6580;
+                    }
+
+                    &.review {
+                        background-color: #ffce65;
                     }
                 }
 
                 .date {
-                    font-size: 10px; 
+                    font-size: 10px;
                     font-weight: 800;
                 }
             }
+        }
+    }
+}
+
+.data-grid-column {
+    padding: 5px;
+    border: none !important;
+
+    &:nth-child(2) {
+        .stat-tile {
+            background-color: #f2fef9;
+        }
+    }
+
+    &:nth-child(3) {
+        .stat-tile {
+            background-color: #f2fef9;
+        }
+    }
+    &:nth-child(4) {
+        .stat-tile {
+            background-color: #e6eef9;
+        }
+    }
+}
+
+.stat-tile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #faf8f1;
+
+    .top {
+        width: 100%;
+        height: 80%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .title {
+            position: relative;
+            padding: 6px 20px;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-size: 11px;
+
+            &:before {
+                content: "";
+                width: 15px;
+                height: 15px;
+                background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogIDxwYXRoIGQ9Ik04NTQuNiAyODguN2M2IDYgOS40IDE0LjEgOS40IDIyLjZWOTI4YzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWOTZjMC0xNy43IDE0LjMtMzIgMzItMzJoNDI0LjdjOC41IDAgMTYuNyAzLjQgMjIuNyA5LjRsMjE1LjIgMjE1LjN6TTc5MC4yIDMyNkw2MDIgMTM3LjhWMzI2aDE4OC4yek01MTIgNzg0YTQwIDQwIDAgMSAwIDAtODAgNDAgNDAgMCAwIDAgMCA4MHptMzItMTUyVjQ0OGE4IDggMCAwIDAtOC04aC00OGE4IDggMCAwIDAtOCA4djE4NGE4IDggMCAwIDAgOCA4aDQ4YTggOCAwIDAgMCA4LTh6Ii8+Cjwvc3ZnPgo=");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+        }
+
+        .count {
+            position: relative;
+            padding: 6px 0;
+            font-size: 30px;
+        }
+    }
+
+    .bottom {
+        width: 100%;
+        height: 20%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-between;
+
+        .percentage {
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+
+            .icon-bg {
+                width: auto;
+                height: auto;
+                border-radius: 20px;
+                margin-left: 10px;
+                padding: 2px;
+
+                .icon-placeholder {
+                    background-color: transparent;
+                    width: 12px;
+                    height: 12px;
+                    
+
+                    .icon {
+                        width: 100%;
+                        height: 100%;
+                        background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogIDxwYXRoIGQ9Ik04NjggNTQ1LjVMNTM2LjEgMTYzYTMxLjk2IDMxLjk2IDAgMCAwLTQ4LjMgMEwxNTYgNTQ1LjVhNy45NyA3Ljk3IDAgMCAwIDYgMTMuMmg4MWM0LjYgMCA5LTIgMTIuMS01LjVMNDc0IDMwMC45Vjg2NGMwIDQuNCAzLjYgOCA4IDhoNjBjNC40IDAgOC0zLjYgOC04VjMwMC45bDIxOC45IDI1Mi4zYzMgMy41IDcuNCA1LjUgMTIuMSA1LjVoODFjNi44IDAgMTAuNS04IDYtMTMuMnoiLz4KPC9zdmc+Cg==");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: 100%;
+                        filter: saturate(100%) brightness(0%) invert(100%);
+                    }
+                }
+
+                &.up {
+                    background-color: #52c4c9;
+                }
+
+                &.down {
+                    background-color:  #db7a7a;
+
+                    .icon {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+
+        .stat-btn {
+            margin: 0;
         }
     }
 }
