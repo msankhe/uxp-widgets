@@ -238,7 +238,6 @@
                     background-color: transparent;
                     width: 12px;
                     height: 12px;
-                    
 
                     .icon {
                         width: 100%;
@@ -256,7 +255,7 @@
                 }
 
                 &.down {
-                    background-color:  #db7a7a;
+                    background-color: #db7a7a;
 
                     .icon {
                         transform: rotate(180deg);
@@ -267,6 +266,125 @@
 
         .stat-btn {
             margin: 0;
+        }
+    }
+}
+
+.incident-widget {
+    .incident-tool-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .incident-tb-label {
+            margin-right: 20px;
+        }
+    }
+
+    .body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding: 15px;
+        justify-content: space-between;
+        margin-top: 20px;
+
+        .incident-tile {
+            background-color: #f8f8f8;
+            min-width: 200px;
+            border-radius: 10px;
+            padding: 10px;
+
+            .top {
+                width: 100%;
+                height: 20%;
+                flex-grow: 0;
+                flex-shrink: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .count {
+                    font-size: 20px;
+
+                    span {
+                        font-size: 12px;
+                        color: gray;
+                    }
+                }
+                .percentage {
+                    font-size: 10px;
+                    display: flex;
+                    align-items: center;
+
+                    .icon-bg {
+                        width: auto;
+                        height: auto;
+                        border-radius: 20px;
+                        margin-left: 10px;
+                        padding: 2px;
+                        background-color: #52c4c9;
+
+                        .icon-placeholder {
+                            background-color: transparent;
+                            width: 12px;
+                            height: 12px;
+
+                            .icon {
+                                width: 100%;
+                                height: 100%;
+                                background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogIDxwYXRoIGQ9Ik04NjggNTQ1LjVMNTM2LjEgMTYzYTMxLjk2IDMxLjk2IDAgMCAwLTQ4LjMgMEwxNTYgNTQ1LjVhNy45NyA3Ljk3IDAgMCAwIDYgMTMuMmg4MWM0LjYgMCA5LTIgMTIuMS01LjVMNDc0IDMwMC45Vjg2NGMwIDQuNCAzLjYgOCA4IDhoNjBjNC40IDAgOC0zLjYgOC04VjMwMC45bDIxOC45IDI1Mi4zYzMgMy41IDcuNCA1LjUgMTIuMSA1LjVoODFjNi44IDAgMTAuNS04IDYtMTMuMnoiLz4KPC9zdmc+Cg==");
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: 100%;
+                                filter: saturate(100%) brightness(0%) invert(100%);
+                            }
+                        }
+
+                        &.up {
+                            background-color: #52c4c9;
+                        }
+
+                        &.down {
+                            background-color: #db7a7a;
+
+                            .icon {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .bottom {
+                width: 100%;
+                height: 80%;
+                flex-grow: 0;
+                flex-shrink: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .layers-container {
+                    background-color: transparent;
+                    margin-bottom: 20px;
+
+                    .layers {
+                        width: 60px;
+                        height: 60px;
+                        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHRpdGxlPmlvbmljb25zLXY1LWE8L3RpdGxlPjxwYXRoIGQ9Ik0yNTYsMjU2Yy0xMy40NywwLTI2Ljk0LTIuMzktMzcuNDQtNy4xN2wtMTQ4LTY3LjQ5QzYzLjc5LDE3OC4yNiw0OCwxNjkuMjUsNDgsMTUyLjI0czE1Ljc5LTI2LDIyLjU4LTI5LjEyTDIxOS44Niw1NS4wNWMyMC41Ny05LjQsNTEuNjEtOS40LDcyLjE5LDBsMTQ5LjM3LDY4LjA3YzYuNzksMy4wOSwyMi41OCwxMi4xLDIyLjU4LDI5LjEycy0xNS43OSwyNi0yMi41OCwyOS4xMWwtMTQ4LDY3LjQ4QzI4Mi45NCwyNTMuNjEsMjY5LjQ3LDI1NiwyNTYsMjU2Wk00MzIuNzYsMTU1LjE0aDBaIi8+PHBhdGggZD0iTTQ0MS4zNiwyMjYuODEsNDI2LjI3LDIyMCwzODcuNSwyMzcuNzRsLTk0LDQzYy0xMC41LDQuOC0yNCw3LjE5LTM3LjQ0LDcuMTlzLTI2LjkzLTIuMzktMzcuNDItNy4xOWwtOTQuMDctNDNMODUuNzksMjIwbC0xNS4yMiw2Ljg0QzYzLjc5LDIyOS45Myw0OCwyMzksNDgsMjU2czE1Ljc5LDI2LjA4LDIyLjU2LDI5LjE3bDE0OCw2Ny42M0MyMjksMzU3LjYsMjQyLjQ5LDM2MCwyNTYsMzYwczI2Ljk0LTIuNCwzNy40NC03LjE5TDQ0MS4zMSwyODUuMkM0NDguMTIsMjgyLjExLDQ2NCwyNzMuMDksNDY0LDI1NlM0NDguMjMsMjI5LjkzLDQ0MS4zNiwyMjYuODFaIi8+PHBhdGggZD0iTTQ0MS4zNiwzMzAuOCw0MjYuMjcsMzI0LDM4Ny41LDM0MS43M2wtOTQsNDIuOTVjLTEwLjUsNC43OC0yNCw3LjE4LTM3LjQ0LDcuMThzLTI2LjkzLTIuMzktMzcuNDItNy4xOGwtOTQuMDctNDNMODUuNzksMzI0bC0xNS4yMiw2Ljg0QzYzLjc5LDMzMy45Myw0OCwzNDMsNDgsMzYwczE1Ljc5LDI2LjA3LDIyLjU2LDI5LjE1bDE0OCw2Ny41OUMyMjksNDYxLjUyLDI0Mi41NCw0NjQsMjU2LDQ2NHMyNi44OC0yLjQ4LDM3LjM4LTcuMjdsMTQ3LjkyLTY3LjU3QzQ0OC4xMiwzODYuMDgsNDY0LDM3Ny4wNiw0NjQsMzYwUzQ0OC4yMywzMzMuOTMsNDQxLjM2LDMzMC44WiIvPjwvc3ZnPg==");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        filter: saturate(100%) brightness(0%) invert(79%) sepia(8%) saturate(2573%) hue-rotate(111deg) brightness(92%) contrast(77%);
+                    }
+                }
+
+                .label {
+                    font-size: 18px;
+                }
+            }
         }
     }
 }
