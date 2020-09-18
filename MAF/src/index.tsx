@@ -7,6 +7,7 @@ import TaskList from "./components/TaskList";
 import Stats from "./components/Stats";
 import IncidentWidget from "./components/Incident";
 import DiscomfortZones from "./components/DiscomfortZones";
+import TotalTasks from "./components/TotalTask";
 
 
 registerWidget({
@@ -61,6 +62,20 @@ registerWidget({
             h: 9,
             minW: 20,
             minH: 9
+        }
+    }
+});
+
+registerWidget({
+    id: "TotalTasks",
+    name: "TotalTasks",
+    widget: TotalTasks,
+    configs: {
+        layout: {
+            w: 18,
+            h: 11,
+            minW: 18,
+            minH: 11
         }
     }
 });
