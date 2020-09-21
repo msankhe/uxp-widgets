@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DataList, FilterPanel, ItemCard, PortalContainer, ProfileImage, TitleBar, WidgetWrapper } from 'uxp/components';
+import { DataList, DynamicSelect, FilterPanel, FormField, ItemCard, Label, PortalContainer, ProfileImage, SearchBox, Select, TitleBar, WidgetWrapper } from 'uxp/components';
 import { IContextProvider } from '../uxp';
 
 interface ITaskListProps {
@@ -11,9 +11,21 @@ const TaskList: React.FunctionComponent<ITaskListProps> = (props) => {
     // get props 
     let { uxpContext } = props;
 
+    // states
+    let [sort, setSort] = React.useState<string>('');
+    let [query, setQuery] = React.useState<string>("");
+    let [selected, setSelected] = React.useState<any>({});
+    let [args, setArgs] = React.useState<any>({})
+
     // function to get data from lucy modal
-    async function getTasks(max: number, lastPageToken: string) {
-        let data = await uxpContext.executeAction("MAF", "get_tasks", { max: max, lastPageToken: lastPageToken }, { json: true })
+    async function getTasks(max: number, lastPageToken: string, args: any) {
+        let params = {
+            max: max,
+            lastPageToken: lastPageToken,
+            sortBy: args?.sortBy,
+            query: args?.query
+        }
+        let data = await uxpContext.executeAction("MAF", "get_tasks", params, { json: true })
 
         console.log("data", data.items)
         let p = new Promise<{ items: Array<any>, pageToken: string }>((resolve, reject) => {
@@ -23,8 +35,10 @@ const TaskList: React.FunctionComponent<ITaskListProps> = (props) => {
         return p
     }
 
+    React.useEffect(() => {
+        setArgs({ ...args, ...{ sortBy: sort, query: query } })
+    }, [sort,query])
 
-    let data: any[] = [];
 
     return <WidgetWrapper>
         <div className={`list-container`}  >
@@ -38,9 +52,29 @@ const TaskList: React.FunctionComponent<ITaskListProps> = (props) => {
                 <div className="filter-container">
                     <FilterPanel
                         onClear={() => {
+                            setSort("");
+                            setQuery("");
                         }}
+                        enableClear={(sort.length > 0) || (query.length > 0)}
                     >
-
+                        <FormField>
+                            <Label>Search By</Label>
+                            <SearchBox value={query} onChange={setQuery} />
+                        </FormField>
+                        {/* <FormField>
+                            <Label>Sort By</Label>
+                            <Select
+                                selected={sort}
+                                onChange={setSort}
+                                options={[
+                                    { label: "User Name", value: "userName" },
+                                    { label: "Ref. No", value: "ref" },
+                                    { label: "Type", value: "type" },
+                                    { label: "Status", value: "status" },
+                                ]}
+                                placeholder="sort by"
+                            />
+                        </FormField> */}
 
                     </FilterPanel>
                 </div>
@@ -74,7 +108,7 @@ const TaskList: React.FunctionComponent<ITaskListProps> = (props) => {
 
                         </div>);
                     }}
-
+                    args={args}
                 />
 
             </div>
