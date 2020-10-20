@@ -49,7 +49,7 @@ const VisitorArrivalsWidget: React.FunctionComponent<IVisitorArrivalsProps> = (p
     React.useEffect(() => {
         if (visitors.length > 0) {
             let _index = currentIndex.current;
-            
+
             if(_index >= visitors.length) {
                 _index = visitors.length -1
             }
@@ -136,7 +136,7 @@ const VisitorArrivalsWidget: React.FunctionComponent<IVisitorArrivalsProps> = (p
                 <div className="visitor-summary-card">
 
 
-                    <div className="header">
+                    <div className="header uxp-drag-handler">
                         <div className="title">
                             Hello, <div className="large">{userName}</div>
                         </div>
