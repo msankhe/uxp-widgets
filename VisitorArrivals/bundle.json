@@ -1,0 +1,12 @@
+{
+    "id":"c71ce51d-f3e9-4984-9074-bf2c0b9f887d",
+    "author":"dinesh_gamage",
+    "widgets":[
+        {
+            "id":"VisitorArrivals",
+            "title":"VisitorArrivals",
+            "description":"A widget to show visitor arrivals"
+        }
+    ],
+    "sidebarLinks":[]
+}
