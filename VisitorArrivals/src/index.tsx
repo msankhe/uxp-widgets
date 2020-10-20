@@ -28,6 +28,9 @@ const VisitorArrivalsWidget: React.FunctionComponent<IVisitorArrivalsProps> = (p
     const [visitors, setVisitors] = React.useState<IVisitor[] | []>([])
 
     let [userName, setUserName] = React.useState<string>("user");
+
+    let currentIndex = React.useRef<number>(0)
+
     // toast
     let Toast = useToast();
 
@@ -45,7 +48,12 @@ const VisitorArrivalsWidget: React.FunctionComponent<IVisitorArrivalsProps> = (p
     // update visitor
     React.useEffect(() => {
         if (visitors.length > 0) {
-            setVisitor({ ...visitors[0], index: 0 })
+            let _index = currentIndex.current;
+            
+            if(_index >= visitors.length) {
+                _index = visitors.length -1
+            }
+            setVisitor({ ...visitors[_index], index: _index })
         }
         else {
             setVisitor(null)
@@ -71,11 +79,13 @@ const VisitorArrivalsWidget: React.FunctionComponent<IVisitorArrivalsProps> = (p
     // toggle prev & next
     const toggleNext = (current: number) => {
         let next = (current === (visitors.length - 1)) ? 0 : (current + 1);
+        currentIndex.current = next
         setVisitor({ ...visitors[next], ...{ index: next } });
     }
 
     const togglePrev = (current: number) => {
         let prev = current == 0 ? (visitors.length - 1) : (current - 1);
+        currentIndex.current = prev
         setVisitor({ ...visitors[prev], ...{ index: prev } });
     }
 
@@ -97,14 +107,15 @@ const VisitorArrivalsWidget: React.FunctionComponent<IVisitorArrivalsProps> = (p
             .then(res => {
                 if (res.status && res.status == "success") {
 
-                    if (status == "acknowledged") {
-                        // update visitors
-                        let _visitors = visitors.filter((v: IVisitor) => v._id !== visitor._id)
-                        Toast.success("Acknowledged")
-                        setVisitors(_visitors)
-                    }
+                    let _visitors = visitors.filter((v: IVisitor) => v._id !== visitor._id)
+                    setVisitors(_visitors)
 
-                    toggleNext(index)
+                    if (status == "acknowledged") {
+                        Toast.success("Acknowledged")
+                    }
+                    else {
+                        Toast.success("Dismissed")
+                    }
                 }
             })
             .catch(e => {
