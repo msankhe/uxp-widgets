@@ -1,6 +1,6 @@
 import * as React from "react";
 import { registerWidget, IContextProvider } from './uxp';
-import { NotificationBlock, useToast, WidgetWrapper } from "uxp/components";
+import { NotificationBlock, useMessageBus, useToast, WidgetWrapper } from "uxp/components";
 import './styles.scss';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
@@ -34,13 +34,29 @@ const VisitorArrivalsWidget: React.FunctionComponent<IVisitorArrivalsProps> = (p
     // toast
     let Toast = useToast();
 
+    useMessageBus(uxpContext, "visitor-arrival", (payload, channel) => {
+        getVisitorArrivals();
+
+        Toast.info("Your visitor is here")
+        return "updated"
+    })
+
     // get visitor on load
     React.useEffect(() => {
         getVisitorArrivals();
 
         if (uxpContext.getUserDetails) {
             uxpContext.getUserDetails().then(details => {
-                setUserName(details.name)
+                // get first name 
+                let name = "user"
+                let _n = details.name;
+                if(_n) {
+                    let _arr = _n.split(" ");
+                    if(_arr.length > 0) {
+                        name = _arr[0]
+                    }
+                }
+                setUserName(name)
             });
         }
     }, [])

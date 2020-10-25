@@ -1,5 +1,5 @@
 declare module "uxp/components" {
-    
+
     /**
      * @export
      * Options that can be passed to a portal container component
@@ -9,12 +9,12 @@ declare module "uxp/components" {
          * create a backdrop if true
          */
         hasBackdrop?: boolean,
-    
+
         /**
          * callback function to click on backdrop
          */
         onClickBackdrop?: () => void,
-    
+
         /**
          * additional styles to backdrop
          */
@@ -25,7 +25,7 @@ declare module "uxp/components" {
          */
         disableScroll?: boolean
     }
-        
+
     /**
      * This function is invoked to display a toast (notification popup).
      *
@@ -49,7 +49,7 @@ declare module "uxp/components" {
         onClose?: () => void,
         closeAfter?: number,
     }
-        
+
     /**
      * The result of calling the useToast hook. This gives you methods to invoke notifications for success, errors, etc...
      * All notifications work the same way but have different styles.
@@ -63,7 +63,7 @@ declare module "uxp/components" {
         custom: IToast,
         remove: IRemove
     }
-        
+
     /**
      * @export
      */
@@ -84,13 +84,13 @@ declare module "uxp/components" {
          * ```
          */
         content: string | IContentFunction,
-    
+
         /**
          * Where the tooltip should be placed relative to the element it is being displayed for
          * <Tooltip position="left" content="There are many like it but this one's mine" />
          */
         position?: ITooltipPosition
-    
+
         /**
          * the content to show within the bubble
          *  This can be either a string or a JSX element
@@ -118,7 +118,7 @@ declare module "uxp/components" {
          *
          */
     }
-        
+
     /**
      * @export
      */
@@ -139,7 +139,7 @@ declare module "uxp/components" {
          * ```
          */
         title: string | IContentFunction,
-    
+
         /**
          * the content to show within the bubble
          *  This can be either a string or a JSX element
@@ -158,12 +158,12 @@ declare module "uxp/components" {
          *
          */
         content: string | IContentFunction,
-    
+
         /**
          * Where the bubble should be positioned relative to the element
          */
         position?: IPopoverPosition
-    
+
         /**
          * the content to show within the bubble
          *  This can be either a string or a JSX element
@@ -194,7 +194,7 @@ declare module "uxp/components" {
          *
          */
     }
-        
+
     /**
      * @export
      */
@@ -207,12 +207,12 @@ declare module "uxp/components" {
          * The  currently selected value
          */
         selected: string,
-    
+
         /**
          * Gets called whenever the selection changes. The value parameter has the newly selected value
          */
         onChange: (value: string) => void,
-    
+
         /**
          * Text to show when no value is selected
          */
@@ -221,14 +221,14 @@ declare module "uxp/components" {
          * Any extra css classes to add to the component
          */
         className?: string,
-    
+
         /**
          * Set this to false to indicate the field doesn't have a valid value
          */
         isValid?: boolean,
         // inputAttr?: any
     }
-        
+
     /**
      * @export
      *
@@ -238,19 +238,19 @@ declare module "uxp/components" {
          * The text shown to the user for this option
          */
         label: string,
-    
+
         /**
          * The actual value stored when this option is selected
          */
         value: string
     }
-        
+
     /**
      * @export
      * An individual pie chart slice
      */
     export interface IDataItem { name: string, value: number, color?: string }
-        
+
     /**
      * @export
      */
@@ -260,7 +260,7 @@ declare module "uxp/components" {
          */
         className?: string
     }
-        
+
     /**
      * Represents an individual marker
      * @example
@@ -273,7 +273,7 @@ declare module "uxp/components" {
         longitude: number,
         data?: any
     }
-        
+
     /**
      * @export
      * A static image to load as the map.
@@ -287,13 +287,13 @@ declare module "uxp/components" {
          * The width of the image in pixels
          */
         width: number;
-    
+
         /**
          * The height of the image in pixels
          */
         height: number;
     }
-        
+
     /**
      * @export
      * Options that can be passed to a date picker field
@@ -303,23 +303,23 @@ declare module "uxp/components" {
          * The minimum selectable date. Either a Date object an an ISO8601 date string
          */
         minDate?: string | Date,
-    
+
         /**
          * The maximum selectable date. Either a Date object an an ISO8601 date string
          */
         maxDate?: string | Date,
-    
+
         /**
          * If set to `true`, you cannot select a weekend date
          */
         disableWeekEnds?: boolean,
-    
+
         /**
          * An array of specific dates that the user cannot select
          */
         disableDates?: Array<Date | String>
     }
-        
+
     /**
      * @export
      *
@@ -329,34 +329,34 @@ declare module "uxp/components" {
          * The title
          */
         title: string,
-    
+
         /**
          * The currently selected date. Either a Date object or an ISO8601 string representation of a date
          */
         date: string | Date,
-    
+
         /**
          * Callback that gets executed whenever a date is selected/changed in the date picker
          */
         onChange: (date: Date) => void,
-    
+
         /**
          * Called when the calendar popup is closed
          */
         closeOnSelect?: boolean,
-    
+
         /**
          * Additional options to control behavior
          */
         options?: IDatePickerOptions,
-    
+
         /**
          * Set to true to prevent a user from typing in a date
          */
         disableInput?: boolean,
-    
+
     }
-        
+
     /**
      * @export
      * Options that can be passed to a date picker field
@@ -366,7 +366,7 @@ declare module "uxp/components" {
         width: string,
         renderColumn: (item: any) => JSX.Element
     }
-        
+
     /**
      * @export
      * Dropdown button props
@@ -381,7 +381,7 @@ declare module "uxp/components" {
          * ```
          */
         content: () => JSX.Element,
-    
+
         /**
          * Where the dropdown should be placed relative to the element it is being displayed for
          * default is right
@@ -392,7 +392,7 @@ declare module "uxp/components" {
          * If this is false dropdown ill show on click
          */
         showOnHover?: boolean
-    
+
         /**
          * Dropdown button basic example
          *
@@ -419,9 +419,9 @@ declare module "uxp/components" {
          *  </DropDownButton>
          * ```
          */
-    
+
     }
-        
+
     /**
      * @export
      * These props are passed to the render method of each wizard step.
@@ -432,13 +432,13 @@ declare module "uxp/components" {
          * Triggers a request to go to the next step in the wizard. You can use this functional to programatically move to the next step (the user can also click the 'Next' action to do the same thing)
          */
         next: (id?: string) => void;
-    
+
         /**
          * Similar to `next`, you can call this function to programatically go to the previous step in the wizard.
          */
         prev: () => void;
     }
-        
+
     /**
      * Defines an individual step within a wizard.
      * Each step provides a render method to render the actual step.
@@ -453,125 +453,125 @@ declare module "uxp/components" {
         title: string;
         render: (props: IWizardStepProps) => React.ReactNode;
     }
-        
+
     /**
      * @export
      */
     export type IDataFunction = (max: number, lastPageToken: string, args?: any) => Promise<{ items: Array<any>, pageToken: string }>;
-        
+
     /**
      * @export
      */
     export type IToastContent = () => JSX.Element
-        
+
     /**
      * @export
      */
     export type IToast = (content: string | IPartialContent) => void;
-        
+
     /**
      * The react hook for creating toasts
      * @export
      */
     export type ToastHook = () => IToastResult;
-        
+
     /**
      * @export
      */
     export type IRemove = (id: string) => void;
-        
+
     /**
      * @export
      */
     export type IContentFunction = () => JSX.Element;
-        
+
     /**
      * A simple callback function
      * @export
      */
-    export type ICallback = ()=>void;
-        
+    export type ICallback = () => void;
+
     /**
      * @export
      * Options that can be passed to a date picker field
      */
     export type ITitleFunc = () => JSX.Element
-        
+
     /**
      * The react hook for resize effect
      * @export
      */
     export type ResizeEffectHook = (instanceId: string) => boolean
-        
+
     /**
      * Um - animations. We need to work on this.
      * @export
      */
     export type IAnimation = 'm-slide-ftr' | 'm-slide-ftl' | 'm-slide-fbr' | 'm-slide-fbl' | 'm-zoom-fc';
-        
+
     /**
      * Determines the behaviour of the input field
      * @export
      */
-    export type IInputType = "text"| "password"| "number"|  "email";
-        
+    export type IInputType = "text" | "password" | "number" | "email";
+
     /**
      * @export
      */
     export type ISize = "small" | "large";
-        
+
     /**
      * @export
      */
     export type IButtonType = "search" | "close" | "done" | "arrow-up" | "arrow-down" | "arrow-left" | "arrow-right" | "filter";
-        
+
     /**
      * @export
      */
     export type IButtonSize = "large" | "small";
-        
+
     /**
      * @export
      */
     export type ITooltipPosition = "top" | "bottom" | "left" | "right";
-        
+
     /**
      * @export
      *
      */
     export type IPopoverPosition = "top" | "bottom" | "left" | "right";
-        
+
     /**
      * @export
      */
     export type IPosition = "left" | "right";
-        
+
     /**
      * @export
      * Determines how a checkbox field looks
      */
     export type ICheckboxType = "default" | "bordered" | "change-icon" | "switch-line" | "switch-box";
-        
+
     /**
      * @export
      * dropdown position
      */
     export type IDropDownButtonPosition = "left" | "right";
-        /**
-     * @export
-     * Options that can be passed to a portal container component
-     */
+    /**
+ * @export
+ * Options that can be passed to a portal container component
+ */
     interface IPortalContainerProps {
         /**
          * create a backdrop if true
          */
         hasBackdrop?: boolean,
-    
+
         /**
          * callback function to click on backdrop
          */
         onClickBackdrop?: () => void,
-    
+
         /**
          * additional styles to backdrop
          */
@@ -605,8 +605,8 @@ declare module "uxp/components" {
      *      {your content}
      *  </PortalContainer>
      */
-    export const PortalContainer : React.FunctionComponent<IPortalContainerProps>;
-        
+    export const PortalContainer: React.FunctionComponent<IPortalContainerProps>;
+
     interface IModalProps {
         /**
          * Set this to true to make the modal visible
@@ -616,50 +616,50 @@ declare module "uxp/components" {
          * Called whenever the modal is opened
          */
         onOpen?: () => void,
-    
+
         /**
          * Called when the modal gets closed
          */
         onClose?: () => void,
-    
+
         /**
          * The title set in the title bar of the modal
          * If the `headerContent` attribute is set, then this value will not be used.
          */
         title?: string,
-    
+
         /**
          * any custom component to use to render the dialog close button.
          * If a value is not provided and `showCloseButton` is set to true, the default close button UI will be rendered
          */
         closeButton?: JSX.Element,
-    
+
         /**
          * Any extra css styles to apply
          */
         styles?: any,
-    
+
         /**
          * Any extra css classes to apply
          */
         className?: string,
-    
+
         /**
          * Any custom content to include in the modal header.
          * If this is set, then the `title` property will not be used.
          */
         headerContent?: JSX.Element
-    
+
         /**
          * Set to true to allow the dialog to be closed by clicking outside of it
          */
         backgroundDismiss?: boolean,
-    
+
         /**
          * Set this to 'true' to show the close button in the dialog
          */
         showCloseButton?: boolean,
-    
+
         /**
          * Animation to use when opening/closing a modal
          */
@@ -695,8 +695,8 @@ declare module "uxp/components" {
      * @export
      *
      */
-    export const Modal : React.FunctionComponent<IModalProps>;
-        
+    export const Modal: React.FunctionComponent<IModalProps>;
+
     interface IFormFieldProps {
         /**Set this to true to have multiple fields in a single horizontal line */
         inline?: boolean,
@@ -704,7 +704,7 @@ declare module "uxp/components" {
          * Any extra css classes to attach to the field
          */
         className?: string,
-    
+
         /**
          * A background color to set for the field
          */
@@ -730,8 +730,8 @@ declare module "uxp/components" {
      * @example
      * TODO: More Examples
      */
-    export const FormField : React.FunctionComponent<IFormFieldProps>;
-        
+    export const FormField: React.FunctionComponent<IFormFieldProps>;
+
     interface ILabelProps {
         labelFor?: string,
         className?: string,
@@ -746,34 +746,34 @@ declare module "uxp/components" {
      * <Label>Name</Label>
      * ```
      */
-    export const Label : React.FunctionComponent<ILabelProps>;
-        
+    export const Label: React.FunctionComponent<ILabelProps>;
+
     interface IInputProps {
         /**
          * Determines if the input field accepts a password, email address, number or just text. Default is 'text'
          */
         type?: IInputType,
-    
+
         /**
          * The actual text
          */
         value: string,
-    
+
         /**
          * This function is called whenever the text changes. The new text value is passed as a parameter
          */
         onChange: (value: string) => void,
-    
+
         /**
          * Any additional class names to be included for the input field
          */
         className?: string,
-    
+
         /**
          * Determines if an indicator should be shown at the end of the input.
          */
         hasIndicator?: boolean,
-    
+
         /**
          * The color of the indicator icon (relevant only if hasIndicator is true)
          */
@@ -788,15 +788,15 @@ declare module "uxp/components" {
      * A standard text box
      * @export
      */
-    export const Input : React.FunctionComponent<IInputProps>;
-        
+    export const Input: React.FunctionComponent<IInputProps>;
+
     interface IProfileImageProps {
-    
+
         /**
          * The url for the image to be shown
          */
         image?: string,
-    
+
         /**
          * Any name to be dispayed. This is used only if the image is empty.
          * 2 letters will be derived from the name (typically the first letter of the first 2 words in the name)
@@ -813,46 +813,46 @@ declare module "uxp/components" {
      *
      * @export
      */
-    export const ProfileImage : React.FunctionComponent<IProfileImageProps>;
-        /**
-     * Show a simple loading animation indicator
-     * @export
-     */
-    export const Loading : React.FunctionComponent<{}>;
-        
+    export const ProfileImage: React.FunctionComponent<IProfileImageProps>;
+    /**
+ * Show a simple loading animation indicator
+ * @export
+ */
+    export const Loading: React.FunctionComponent<{}>;
+
     interface IButtonProps {
         /**
          * The caption for the button
          */
         title: string,
-    
+
         /**
          * The url of an icon to show on the button
          */
         icon?: string,
-    
+
         /**
          * Any extra css classes to add to the button
          */
         className?: string,
-    
+
         /**
          * The callback that gets invoked when the button is clicked
          */
         onClick: () => void,
-    
+
         /**
          * Set this to `true` to show the button in its 'loading...' state.
          * In this state, an animation will be shown indicating that work is going on and the user will not be able to click the button
          */
         loading?: boolean,
-    
+
         /**
          * The caption to show on the button when its in loading state
          */
         loadingTitle?: string,
-    
-    
+
+
         active?: boolean,
         disabled?: boolean
     }
@@ -860,8 +860,8 @@ declare module "uxp/components" {
      * This is a basic button component.
      * @export
      */
-    export const Button : React.FunctionComponent<IButtonProps>;
-        
+    export const Button: React.FunctionComponent<IButtonProps>;
+
     interface IIConButtonProps {
         /**
          * button type
@@ -879,13 +879,13 @@ declare module "uxp/components" {
          * The callback that gets invoked when the button is clicked.
          */
         onClick?: () => void,
-         /**
-         * Any extra css classes to apply
-         */
+        /**
+        * Any extra css classes to apply
+        */
         className?: string,
-         /**
-         * button size
-         */
+        /**
+        * button size
+        */
         size?: IButtonSize
     }
     /**
@@ -900,10 +900,10 @@ declare module "uxp/components" {
      * ```
      *
      */
-    export const IconButton : React.FunctionComponent<IIConButtonProps>;
-        /**
-     * @export
-     */
+    export const IconButton: React.FunctionComponent<IIConButtonProps>;
+    /**
+ * @export
+ */
     interface ITooltipProps {
         /**
          * The content to show inside the tooltip
@@ -921,13 +921,13 @@ declare module "uxp/components" {
          * ```
          */
         content: string | IContentFunction,
-    
+
         /**
          * Where the tooltip should be placed relative to the element it is being displayed for
          * <Tooltip position="left" content="There are many like it but this one's mine" />
          */
         position?: ITooltipPosition
-    
+
         /**
          * the content to show within the bubble
          *  This can be either a string or a JSX element
@@ -959,10 +959,10 @@ declare module "uxp/components" {
      * This component wraps another component and shows a tooltip for the component it is wrapping, whenever the user moves the mouse over it.
      * @export
      */
-    export const Tooltip : React.FunctionComponent<ITooltipProps>;
-        /**
-     * @export
-     */
+    export const Tooltip: React.FunctionComponent<ITooltipProps>;
+    /**
+ * @export
+ */
     interface IPopoverProps {
         /**
          * title of the popup bubble
@@ -980,7 +980,7 @@ declare module "uxp/components" {
          * ```
          */
         title: string | IContentFunction,
-    
+
         /**
          * the content to show within the bubble
          *  This can be either a string or a JSX element
@@ -999,12 +999,12 @@ declare module "uxp/components" {
          *
          */
         content: string | IContentFunction,
-    
+
         /**
          * Where the bubble should be positioned relative to the element
          */
         position?: IPopoverPosition
-    
+
         /**
          * the content to show within the bubble
          *  This can be either a string or a JSX element
@@ -1048,30 +1048,30 @@ declare module "uxp/components" {
      * ```
      * @export
      */
-    export const Popover : React.FunctionComponent<IPopoverProps>;
-        
+    export const Popover: React.FunctionComponent<IPopoverProps>;
+
     interface IFilterPanelProps {
         /**
          * Called whenever the panel is opened
          */
         onOpen?: ICallback,
-    
+
         /**
          * Called whenever the panel gets dismissed
          */
         onClose?: ICallback,
-    
+
         /**
          * Called whenever the clear button on the panel is pressed. This button is available only when `enableClear` is set to `true1`
          */
         onClear?: ICallback,
         fillContainer?: React.RefObject<HTMLElement>,
-    
+
         /**
          * Any extra css classes to add to the filter panel
          */
         className?: string,
-    
+
         /**
          * Enabled the clear button on the panel
          */
@@ -1104,18 +1104,18 @@ declare module "uxp/components" {
      * ```
      *
      */
-    export const FilterPanel : React.FunctionComponent<IFilterPanelProps>;
-        
+    export const FilterPanel: React.FunctionComponent<IFilterPanelProps>;
+
     interface IWidgetTitleBarProps {
         /**
          * The title to show for the widget
          */
-        title:string;
-    
+        title: string;
+
         /**
          * The url for an icon to be shown next to the title on the top left corner.
          */
-        icon?:string;
+        icon?: string;
         className?: string
     }
     /**
@@ -1133,8 +1133,8 @@ declare module "uxp/components" {
      * ```
      *
      */
-    export const TitleBar : React.FunctionComponent<IWidgetTitleBarProps>;
-        
+    export const TitleBar: React.FunctionComponent<IWidgetTitleBarProps>;
+
     interface ILinkWidgetContainerProps {
         /**
          *  Set this to true to make the container visible
@@ -1144,9 +1144,9 @@ declare module "uxp/components" {
          * Called whenever the container is opened
          */
         onOpen?: any,
-         /**
-         * Called when the container gets closed
-         */
+        /**
+        * Called when the container gets closed
+        */
         onClose?: any,
         /**
          * The title set in the title bar of the container
@@ -1156,9 +1156,9 @@ declare module "uxp/components" {
          * Any extra css classes to apply
          */
         class?: string,
-         /**
-         * Any custom content to include in the container toolbar.
-         */
+        /**
+        * Any custom content to include in the container toolbar.
+        */
         toolbarContent?: any
     }
     /**
@@ -1179,8 +1179,8 @@ declare module "uxp/components" {
      * @export
      *
      */
-    export const LinkWidgetContainer : React.FunctionComponent<ILinkWidgetContainerProps>;
-        
+    export const LinkWidgetContainer: React.FunctionComponent<ILinkWidgetContainerProps>;
+
     interface IFormFeedbackProps {
         validInput?: boolean,
         className?: string
@@ -1199,12 +1199,12 @@ declare module "uxp/components" {
      * ```
      *
      */
-    export const FormFeedback : React.FunctionComponent<IFormFeedbackProps>;
-        
+    export const FormFeedback: React.FunctionComponent<IFormFeedbackProps>;
+
     interface INotificationProps {
-         /**
-         *  Message to show when showing
-         */
+        /**
+        *  Message to show when showing
+        */
         message: string,
         /**
          * Any extra css classes to apply
@@ -1223,8 +1223,8 @@ declare module "uxp/components" {
      * @export
      *
      */
-    export const NotificationBlock : React.FunctionComponent<INotificationProps>;
-        
+    export const NotificationBlock: React.FunctionComponent<INotificationProps>;
+
     interface IDataListProps {
         /**
          * List of items to render. This can either be an array of objects or a function that will generate the array of objects.
@@ -1232,7 +1232,7 @@ declare module "uxp/components" {
          * `max` specifies the maximum number of items to be returned.
          */
         data: Array<any> | IDataFunction,
-    
+
         /**
          * A function that will be responsible for rendering each individual element of the list.
          * It is common to return  `ItemCard` component from here.
@@ -1249,20 +1249,20 @@ declare module "uxp/components" {
          * ```
          */
         renderItem: (item: any, key: number) => JSX.Element,
-    
+
         /**
          * The number of items to fetch in each page. This gets passed to the data function as the `max` parameter
          */
         pageSize: number,
-    
+
         args?: any
-    
-    
+
+
         /**
          * This function renders a loading animation. If not specified, the default loading animation will be used.
          */
         renderLoading?: () => JSX.Element,
-    
+
         /**
          * Any extra class names to be added to the component
          */
@@ -1285,8 +1285,8 @@ declare module "uxp/components" {
      * A infinite-scrollable list that supports paging in of items
      * @export
      */
-    export const DataList : React.FunctionComponent<IDataListProps>;
-        
+    export const DataList: React.FunctionComponent<IDataListProps>;
+
     interface ISearchBoxProps {
         /**
          * Default value
@@ -1340,10 +1340,10 @@ declare module "uxp/components" {
      *  />
      *
      */
-    export const SearchBox : React.FunctionComponent<ISearchBoxProps>;
-        /**
-     * @export
-     */
+    export const SearchBox: React.FunctionComponent<ISearchBoxProps>;
+    /**
+ * @export
+ */
     interface ISelectProps {
         /**
          * List of items to select from. Each option has a label which is displayed and a value which is what we actually select.
@@ -1353,12 +1353,12 @@ declare module "uxp/components" {
          * The  currently selected value
          */
         selected: string,
-    
+
         /**
          * Gets called whenever the selection changes. The value parameter has the newly selected value
          */
         onChange: (value: string) => void,
-    
+
         /**
          * Text to show when no value is selected
          */
@@ -1367,7 +1367,7 @@ declare module "uxp/components" {
          * Any extra css classes to add to the component
          */
         className?: string,
-    
+
         /**
          * Set this to false to indicate the field doesn't have a valid value
          */
@@ -1379,34 +1379,34 @@ declare module "uxp/components" {
      * A select control to select one item from a list of multiple items
      * @export
      */
-    export const Select : React.FunctionComponent<ISelectProps>;
-        
+    export const Select: React.FunctionComponent<ISelectProps>;
+
     interface ICheckboxProps {
         /**
          * Called when the checkbox is checked or unchecked by clicking on it
          */
         onChange: (checked: boolean) => void,
-    
+
         /**
          * Get or set the current state of the checkbox
          */
         checked: boolean,
-    
+
         /**
          * Any additional text to show next to the checkbox
          */
         label?: string,
-    
+
         /**
          * If set to 'false' the checkbox will show in an 'invalid' state - neither true nor false
          */
         isValid?: boolean,
-    
+
         /**
          * Any additional html attributes to pass to the underlying input field
          */
         inputAttr?: { [key: string]: string | boolean },
-    
+
         /**
          * Determines how the checkbox looks, visually
          */
@@ -1439,24 +1439,24 @@ declare module "uxp/components" {
      * ```
      *
      */
-    export const Checkbox : React.FunctionComponent<ICheckboxProps>;
-        
+    export const Checkbox: React.FunctionComponent<ICheckboxProps>;
+
     interface IToggleFilterProps {
         /**
          * The list of possible options to choose from
          */
         options: IToggleOption[],
-    
+
         /**
          * The current value (selected item)
          */
         value: string,
-    
+
         /**
          * Called whenever an option is selected
          */
         onChange: (newValue: string) => void,
-    
+
         /**
          * Any additional css classes to include
          */
@@ -1467,19 +1467,19 @@ declare module "uxp/components" {
      * Suitable to select a single item from a list where the list is very small. Most often used for filters.
      * @export
      */
-    export const ToggleFilter : React.FunctionComponent<IToggleFilterProps>;
-        
+    export const ToggleFilter: React.FunctionComponent<IToggleFilterProps>;
+
     interface IPieChartProps {
         /**
          * A list of items that the pie chart is comprised of
          */
         data: IDataItem[],
-    
+
         /**
          * TODO
          */
         fillColor: string,
-    
+
         /**
          * Set to `true` to show the chart legend
          */
@@ -1490,35 +1490,35 @@ declare module "uxp/components" {
      * Display a pie chart visualization
      * @export
      */
-    export const PieChartComponent : React.FunctionComponent<IPieChartProps>;
-        
+    export const PieChartComponent: React.FunctionComponent<IPieChartProps>;
+
     interface IItemCardProps {
         /**
          * A reference to the data to be rendered as a card.
          */
         item?: any,
-    
+
         /**
          * The name of the field within the `item` that has the url of an image to be shown
          */
         imageField?: string,
-    
+
         /**
          * The name of the field within `item` that has the title of the object
          */
         titleField?: string,
-    
+
         /**
          * The name of the field within 'item' that holds the subtitle of the object
          */
         subTitleField?: string,
-    
+
         /**
          * This name of the field within `item` that contains any 'name' associated with the object.
          * This property is used only if the imageField value is not set. The name is abbreviated and set as the profile image.
          */
         nameField?: string,
-    
+
         /**
          * Any extra css classes to biind to the card.
          */
@@ -1530,8 +1530,8 @@ declare module "uxp/components" {
      * @export
      *
      */
-    export const ItemCard : React.FunctionComponent<IItemCardProps>;
-        
+    export const ItemCard: React.FunctionComponent<IItemCardProps>;
+
     interface IDataGridProps {
         /**
          * The items to render into a grid. This will be an array of any data.
@@ -1539,7 +1539,7 @@ declare module "uxp/components" {
          *
          */
         data: Array<any>,
-    
+
         /**
          * A function which can be used to return the contents of each cell. The function will be passed 2 parameters:
          *
@@ -1555,12 +1555,12 @@ declare module "uxp/components" {
          * ```
          */
         renderItem: (item: any, key: number) => JSX.Element,
-    
+
         /**
          * The number of columns to display. Items will be layed out row by row and the number of columns in each row is specified here
          */
         columns: number,
-    
+
         /**
          * Any additional css class names to include in the component
          */
@@ -1581,10 +1581,10 @@ declare module "uxp/components" {
      * ```
      *
      */
-    export const DataGrid : React.FunctionComponent<IDataGridProps>;
-        /**
-     * @export
-     */
+    export const DataGrid: React.FunctionComponent<IDataGridProps>;
+    /**
+ * @export
+ */
     interface IWidgetWrapperProps {
         /**
          * Any extra css class names to add to the widget wrapper
@@ -1605,14 +1605,14 @@ declare module "uxp/components" {
      * </WidgetWrapper>
      * ```
      */
-    export const WidgetWrapper : React.FunctionComponent<IWidgetWrapperProps>;
-        
+    export const WidgetWrapper: React.FunctionComponent<IWidgetWrapperProps>;
+
     interface ITrendChartProps {
         /**
          * The series to plot. More than one can be visualized.
          */
         data: ITrendSeries[],
-    
+
         /**
          * Use this to render a custom tooltip that will appear when the user hovers over a data point.
          * The data being hovered over is passed as a parameter.
@@ -1621,7 +1621,7 @@ declare module "uxp/components" {
          * onShowTooltip={(data)=><div>{`Temperature: ${data.temp}`}</div>}
          */
         onShowTooltip?: (data: any) => JSX.Element
-    
+
         /**
          * Called whenever a data point is clicked on. The data point being clicked on is passed as a parameter to the function
          */
@@ -1632,8 +1632,8 @@ declare module "uxp/components" {
      * @export
      *
      */
-    export const TrendChartComponent : React.FunctionComponent<ITrendChartProps>;
-        
+    export const TrendChartComponent: React.FunctionComponent<ITrendChartProps>;
+
     interface IDateRangePickerProps {
         title: string,
         /**
@@ -1664,17 +1664,17 @@ declare module "uxp/components" {
              * The minimum selectable date. Either a Date object an an ISO8601 date string
              */
             minDate?: string | Date,
-    
+
             /**
              * The maximum selectable date. Either a Date object an an ISO8601 date string
              */
             maxDate?: string | Date,
-    
+
             /**
              * If set to `true`, you cannot select a weekend date
              */
             disableWeekEnds?: boolean,
-    
+
             /**
              * An array of specific dates that the user cannot select
              */
@@ -1698,38 +1698,38 @@ declare module "uxp/components" {
      * ```
      *
      */
-    export const DateRangePicker : React.FunctionComponent<IDateRangePickerProps>;
-        
+    export const DateRangePicker: React.FunctionComponent<IDateRangePickerProps>;
+
     interface IItemListCardProps {
         /** The title to show on the card */
         title: string,
-    
+
         /**
          * Any optional subtitle content to render. This should be a function that returns a react node
          */
         renderSubTitle?: () => JSX.Element,
-    
+
         /**
          * The object to render in the card
          */
         item: any,
-    
+
         /**
          * The list of fields from within the object that should be shown.
          * For each field in this list - one line gets rendered on the card
          */
         fields: string[],
-    
+
         /** An optional function to control rendering of each field. It takes the item as a parameter along with the name of the field being rendered.
          * You can choose to render whatever you want here
          */
         renderField?: (object: any, field: string, key: number) => JSX.Element,
-    
+
         /**
          * Any background tint to apply to the card. This must be in #RRGGBB hexadecimal format.
          */
         backgroundColor?: string
-    
+
         /**
          * Any additional css classes to apply to the component
          */
@@ -1740,31 +1740,31 @@ declare module "uxp/components" {
      * You can also provide an optional `renderField` function to customize how fields are rendered.
      * @export
      */
-    export const ItemListCard : React.FunctionComponent<IItemListCardProps>;
-        
+    export const ItemListCard: React.FunctionComponent<IItemListCardProps>;
+
     interface IAsyncButtonProps {
-    
+
         /**
          * The caption for the button
          */
         title: string,
-    
+
         /**
         * The url of an icon to show on the button
         */
         icon?: string,
-    
+
         /**
          * Any extra css classes to add to the button
          */
         className?: string,
-    
+
         /**
          * The callback that gets invoked when the button is clicked.
          * It must return a Promise
          */
         onClick: () => Promise<any>,
-    
+
         /**
          * Set button to active state when true
          */
@@ -1787,8 +1787,8 @@ declare module "uxp/components" {
      * The onClick handler should return a promise. The button's behavior is to set the status as 'loading...' until the promise that was returned evluates and returns a result or throws an exception.
      * @export
      */
-    export const AsyncButton : React.FunctionComponent<IAsyncButtonProps>;
-        
+    export const AsyncButton: React.FunctionComponent<IAsyncButtonProps>;
+
     interface IMapComponentProps {
         /**
          * The url of the tile server that will serve up map tiles.
@@ -1803,7 +1803,7 @@ declare module "uxp/components" {
          * ```
          */
         mapUrl: string,
-    
+
         /**
          * A static image to use instead of a map layout.
          * If you are using a static image, specify `mapUrl` as an empty string.
@@ -1817,21 +1817,21 @@ declare module "uxp/components" {
          * ```
          */
         staticImage?: IStaticImage,
-    
+
         /**
          * This handler gets called whenever a marker is clicked on.
          * The first paramater represents the marker element that was clicked on.
          * The second parameter represents the data associated with the marker
          */
         onMarkerClick: (el: any, data: any) => void
-    
+
         /**
          * A list of markers to render.
          * Each marker has a `latitutde` `longitude` and `data` field.
          * The `data` field can store arbitrary data.
          */
         markers: IMarker[],
-    
+
         /**
          * Where the map is centered.
          */
@@ -1845,7 +1845,7 @@ declare module "uxp/components" {
          *
          */
         onRegionClick?: (event: any, data: any) => void
-    
+
         /**
          * The default zoom level to show on the map
          */
@@ -1860,42 +1860,42 @@ declare module "uxp/components" {
      * @export
      *
      */
-    export const MapComponent : React.FunctionComponent<IMapComponentProps>;
-        /**
-     * @export
-     *
-     */
+    export const MapComponent: React.FunctionComponent<IMapComponentProps>;
+    /**
+ * @export
+ *
+ */
     interface IDatePickerProps {
         /**
          * The title
          */
         title: string,
-    
+
         /**
          * The currently selected date. Either a Date object or an ISO8601 string representation of a date
          */
         date: string | Date,
-    
+
         /**
          * Callback that gets executed whenever a date is selected/changed in the date picker
          */
         onChange: (date: Date) => void,
-    
+
         /**
          * Called when the calendar popup is closed
          */
         closeOnSelect?: boolean,
-    
+
         /**
          * Additional options to control behavior
          */
         options?: IDatePickerOptions,
-    
+
         /**
          * Set to true to prevent a user from typing in a date
          */
         disableInput?: boolean,
-    
+
     }
     /**
      *
@@ -1922,8 +1922,8 @@ declare module "uxp/components" {
      *     }}
      * />
      */
-    export const DatePicker : React.FunctionComponent<IDatePickerProps>;
-        
+    export const DatePicker: React.FunctionComponent<IDatePickerProps>;
+
     interface ITimePickerProps {
         /**
         * The title
@@ -1957,8 +1957,8 @@ declare module "uxp/components" {
      *  />
      * ```
      */
-    export const TimePicker : React.FunctionComponent<ITimePickerProps>;
-        
+    export const TimePicker: React.FunctionComponent<ITimePickerProps>;
+
     interface ITimeRangePickerProps {
         title: string
         /**
@@ -1993,8 +1993,8 @@ declare module "uxp/components" {
      *  />
      * ```
      */
-    export const TimeRangePicker : React.FunctionComponent<ITimeRangePickerProps>;
-        
+    export const TimeRangePicker: React.FunctionComponent<ITimeRangePickerProps>;
+
     interface IDateTimePickerProps {
         title: string,
         /**
@@ -2009,7 +2009,7 @@ declare module "uxp/components" {
         * Set to true to prevent a user from typing in a date
         */
         disableInput?: boolean
-    
+
         /**
         * Additional options to control behavior
         */
@@ -2018,17 +2018,17 @@ declare module "uxp/components" {
              * The minimum selectable date. Either a Date object an an ISO8601 date string
              */
             minDate?: string | Date,
-    
+
             /**
              * The maximum selectable date. Either a Date object an an ISO8601 date string
              */
             maxDate?: string | Date,
-    
+
             /**
              * If set to `true`, you cannot select a weekend date
              */
             disableWeekEnds?: boolean,
-    
+
             /**
              * An array of specific dates that the user cannot select
              */
@@ -2049,8 +2049,8 @@ declare module "uxp/components" {
      *  />
      * ```
      */
-    export const DateTimePicker : React.FunctionComponent<IDateTimePickerProps>;
-        
+    export const DateTimePicker: React.FunctionComponent<IDateTimePickerProps>;
+
     interface IDynamicSelectProps {
         /**
          * List of options to render.
@@ -2133,24 +2133,24 @@ declare module "uxp/components" {
      * ```
      *
      */
-    export const DynamicSelect : React.FunctionComponent<IDynamicSelectProps>;
-        
+    export const DynamicSelect: React.FunctionComponent<IDynamicSelectProps>;
+
     interface IConfirmButtonProps {
         /**
          * The caption for the button
          */
         title: string,
-    
+
         /**
          * The url of an icon to show on the button
          */
         icon?: string,
-    
+
         /**
          * Any extra css classes to add to the button
          */
         className?: string,
-    
+
         /**
          * The callback that gets invoked when the confirm button is clicked
          */
@@ -2159,13 +2159,13 @@ declare module "uxp/components" {
          * The callback that gets invoked when the cancel button is clicked
          */
         onCancel: () => void,
-    
+
         /**
          * Set this to `true` to show the button in its 'loading...' state.
          * In this state, an animation will be shown indicating that work is going on and the user will not be able to click the button
          */
         loading?: boolean,
-    
+
         /**
          * The caption to show on the button when its in loading state
          */
@@ -2177,8 +2177,8 @@ declare module "uxp/components" {
      * This is a confirm button component.
      * @export
      */
-    export const ConfirmButton : React.FunctionComponent<IConfirmButtonProps>;
-        
+    export const ConfirmButton: React.FunctionComponent<IConfirmButtonProps>;
+
     interface IDataTableProps {
         /**
          * List of items to render. This can either be an array of objects or a function that will generate the array of objects.
@@ -2186,7 +2186,7 @@ declare module "uxp/components" {
          * `max` specifies the maximum number of items to be returned.
          */
         data: Array<any> | IDataFunction,
-    
+
         /**
          * List of columns to render
          * column contains three(3) params
@@ -2216,19 +2216,19 @@ declare module "uxp/components" {
          * ```
          */
         columns: IDataTableColumn[],
-    
+
         /**
          * The number of items to fetch in each page. This gets passed to the data function as the `max` parameter
          */
         pageSize: number,
-    
+
         args?: any
-    
+
         /**
          * This function renders a loading animation. If not specified, the default loading animation will be used.
          */
         renderLoading?: () => JSX.Element,
-    
+
         /**
          * Any extra class names to be added to the component
          */
@@ -2251,11 +2251,11 @@ declare module "uxp/components" {
      * A infinite-scrollable list that supports paging in of items
      * @export
      */
-    export const DataTable : React.FunctionComponent<IDataTableProps>;
-        /**
-     * @export
-     * Dropdown button props
-     */
+    export const DataTable: React.FunctionComponent<IDataTableProps>;
+    /**
+ * @export
+ * Dropdown button props
+ */
     interface IDropDownButtonProps {
         /**
          * The content to show inside the Dropdown
@@ -2266,7 +2266,7 @@ declare module "uxp/components" {
          * ```
          */
         content: () => JSX.Element,
-    
+
         /**
          * Where the dropdown should be placed relative to the element it is being displayed for
          * default is right
@@ -2277,7 +2277,7 @@ declare module "uxp/components" {
          * If this is false dropdown ill show on click
          */
         showOnHover?: boolean
-    
+
         /**
          * Dropdown button basic example
          *
@@ -2304,25 +2304,25 @@ declare module "uxp/components" {
          *  </DropDownButton>
          * ```
          */
-    
+
     }
     /**
      * This component wraps another component and shows a tooltip for the component it is wrapping, whenever the user moves the mouse over it.
      * @export
      */
-    export const DropDownButton : React.FunctionComponent<IDropDownButtonProps>;
-        
+    export const DropDownButton: React.FunctionComponent<IDropDownButtonProps>;
+
     interface IWizardProps {
         /**
          * A list of steps within the wizard.
          */
         steps: IWizardStep[];
-    
+
         /**
          * What title should be shown on the 'next' button when we reach the last screen
          */
         completionTitle?: string;
-    
+
         /**
          * This callback is run whenever they hit the final 'completion' action on the last step
          */
@@ -2333,6 +2333,9 @@ declare module "uxp/components" {
      * You can conditionally skip steps and validate steps before proceeding.
      * @export
      */
-    export const Wizard : React.FunctionComponent<IWizardProps>;
-        export const useToast:ToastHook;    export const useResizeEffect:ResizeEffectHook;
+    export const Wizard: React.FunctionComponent<IWizardProps>;
+    export const useToast: ToastHook; export const useResizeEffect: ResizeEffectHook;
+
+    type MessageBusHook = (context:IContextProvider,channel:string,callback:(payload:string,channel:string)=>string) => void
+    export const useMessageBus: MessageBusHook;
 }
